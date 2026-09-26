@@ -1,0 +1,40 @@
+{
+  "eventId": 48,
+  "eventUuid": "49fbbbb3-1319-5b87-9749-e8f11c739f8b",
+  "revision": 2,
+  "type": "goal",
+  "period": 2,
+  "time": "01:58",
+  "homeGoals": 2,
+  "awayGoals": 0,
+  "eventTeam": {
+    "teamId": "SAIK",
+    "place": "home",
+    "teamCode": "SKE",
+    "teamName": "Skellefteå AIK"
+  },
+  "player": {
+    "playerId": "6761",
+    "firstName": "Oliver",
+    "familyName": "Okuliar",
+    "jerseyToday": "8"
+  },
+  "assists": {
+    "first": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "second": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    }
+  },
+  "goalStatus": "PP1",
+  "isPenaltyShot": false,
+  "isEmptyNetGoal": false,
+  "gameUuid": "gpy3380iyf"
+}

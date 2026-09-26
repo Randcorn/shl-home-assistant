@@ -1,0 +1,10 @@
+DOMAIN = "shl"
+API_BASE = "https://www.shl.se"
+DEFAULT_TEAM_CODE = "SKE"
+DEFAULT_TEAM_NAME = "Skellefteå AIK"
+EVENT_PLAY_BY_PLAY = "shl_event"
+EVENT_GOAL = "shl_goal"
+CONF_TEAM_CODE = "team_code"
+CONF_TEAM_NAME = "team_name"
+OFF_GAME_INTERVAL = 300
+LIVE_GAME_INTERVAL = 15

@@ -1,0 +1,22 @@
+import json
+from pathlib import Path
+from custom_components.shl.models import parse_goal
+
+FIXTURE = json.loads((Path(__file__).parent / "fixture_goal.json").read_text())
+
+def test_parse_goal_fixture():
+    goal = parse_goal(FIXTURE)
+    assert goal is not None
+    assert goal.event_id == 48
+    assert goal.team_code == "SKE"
+    assert goal.player_name == "Oliver Okuliar"
+    assert goal.jersey == "8"
+    assert goal.period == 2
+    assert goal.time == "01:58"
+    assert goal.home_score == 2
+    assert goal.away_score == 0
+    assert goal.goal_status == "PP1"
+    assert [a["familyName"] for a in goal.assists] == ["Lundberg", "Johansson"]
+
+def test_non_goal_is_ignored():
+    assert parse_goal({"type": "shot"}) is None
