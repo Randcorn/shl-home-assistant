@@ -19,7 +19,8 @@ Idempotency is essential: polling must not repeatedly trigger the same goal.
 
 The prototype now has a schedule-discovery path, team-specific active/next-game
 selection, live play-by-play polling, revision-aware event processing, stored
-event cursors, event emission, and game/score/last-goal sensors. Schedule and
+event cursors, event emission, and game/score/last-goal, points,
+league-position, and standings-statistic sensors. Schedule, standings, and
 play-by-play parsing is kept outside the entity definitions. SHL schedule rows
 identify Skellefteå as `SAIK`; play-by-play uses `SKE`, so the default `SKE`
 configuration matches both.

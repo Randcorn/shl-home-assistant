@@ -19,8 +19,8 @@ from .const import (
     OFF_GAME_INTERVAL,
 )
 from .discovery import (
-    ScheduleGame, discover_team_game, is_finished_state, is_live_state,
-    normalize_state, team_codes,
+    ScheduleGame, choose_next_game, discover_team_game, is_finished_state, is_live_state,
+    normalize_state, parse_team_standing,
 )
 from .events import process_play_by_play
 from .models import (
@@ -28,6 +28,7 @@ from .models import (
 )
 
 DISCOVERY_INTERVAL = timedelta(minutes=5)
+STANDINGS_INTERVAL = timedelta(minutes=15)
 PERSISTENCE_VERSION = 1
 
 
@@ -45,6 +46,8 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         self._selected_game: ScheduleGame | None = None
         self._all_games: list[ScheduleGame] = []
         self._last_discovery: datetime | None = None
+        self._last_standings_refresh: datetime | None = None
+        self._standings: dict[str, Any] | None = None
         self._seen_revisions: dict[str, int] = {}
         self._event_baseline_ready = False
         super().__init__(
@@ -99,18 +102,30 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             self._seen_revisions = {}
             self._event_baseline_ready = False
 
-    def _next_game(self) -> ScheduleGame | None:
-        if not self._selected_game:
-            return None
-        candidates = [
-            game for game in self._all_games
-            if game.game_uuid != self._selected_game.game_uuid
-            and game.start_time and self._selected_game.start_time
-            and game.start_time > self._selected_game.start_time
-            and self.team_code in team_codes(game.home_team) | team_codes(game.away_team)
-            and not game.is_finished
-        ]
-        return min(candidates, key=lambda game: game.start_time) if candidates else None
+    def _next_game(self, now: datetime) -> ScheduleGame | None:
+        return choose_next_game(
+            self._all_games, self.team_code, now, self._selected_game
+        )
+
+    async def _refresh_standings(self, selected: ScheduleGame, now: datetime) -> None:
+        """Refresh standings independently so their outage does not block game data."""
+        ssgt_uuid = selected.raw.get("ssgtUuid")
+        if not ssgt_uuid:
+            return
+        if (
+            self._standings is not None
+            and self._last_standings_refresh is not None
+            and now - self._last_standings_refresh < STANDINGS_INTERVAL
+        ):
+            return
+        try:
+            response = await self.api.team_standings(str(ssgt_uuid))
+        except ShlApiError as err:
+            logging.getLogger(__name__).warning("Unable to refresh SHL standings: %s", err)
+            self._last_standings_refresh = now
+            return
+        self._standings = parse_team_standing(response, self.team_code)
+        self._last_standings_refresh = now
 
     @staticmethod
     def _schedule_game_data(game: ScheduleGame | None) -> dict[str, Any] | None:
@@ -152,12 +167,14 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             if selected is None:
                 self.update_interval = timedelta(seconds=OFF_GAME_INTERVAL)
                 return {
-                    "game": None, "next_game": None, "events": [],
+                    "game": None, "next_game": self._schedule_game_data(self._next_game(now)),
+                    "standings": self._standings, "events": [],
                     "new_events": [], "goals": [], "last_goal": None,
                 }
 
             game_data = self._schedule_game_data(selected) or {}
-            next_game = self._schedule_game_data(self._next_game())
+            await self._refresh_standings(selected, now)
+            next_game = self._schedule_game_data(self._next_game(now))
             changed_events: list[dict[str, Any]] = []
             goals: list[dict[str, Any]] = []
             all_events: list[dict[str, Any]] = []
@@ -229,6 +246,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             return {
                 "game": game_data,
                 "next_game": next_game,
+                "standings": self._standings,
                 "events": all_events,
                 "new_events": changed_events,
                 "goals": goals,

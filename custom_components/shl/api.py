@@ -17,6 +17,7 @@ from .const import (
     PLAY_BY_PLAY_PATH,
     SEASON_SERIES_FILTER_PATH,
     TEAM_STATS_PATH,
+    TEAM_STANDINGS_PATH,
 )
 
 
@@ -134,3 +135,11 @@ class ShlApi:
     async def team_stats(self, game_uuid: str) -> Any:
         path = TEAM_STATS_PATH.format(game_uuid=quote(game_uuid, safe=""))
         return await self._get(path)
+
+    async def team_standings(self, ssgt_uuid: str) -> dict[str, Any]:
+        """Return standings for a season/series/game-type selection."""
+        path = TEAM_STANDINGS_PATH.format(ssgt_uuid=quote(ssgt_uuid, safe=""))
+        data = await self._get(path)
+        if not isinstance(data, dict):
+            raise ShlApiError("Unexpected team-standings response shape")
+        return data

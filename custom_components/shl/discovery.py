@@ -95,6 +95,59 @@ def team_codes(team: dict[str, Any]) -> set[str]:
     return codes
 
 
+def parse_team_standing(payload: Any, configured_team_code: str) -> dict[str, Any] | None:
+    """Select and normalize one team's row from the SHL standings response."""
+    if not isinstance(payload, dict):
+        return None
+    rows = payload.get("leagueStandings")
+    if not isinstance(rows, list):
+        return None
+    configured = configured_team_code.strip().upper()
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        info = row.get("info") if isinstance(row.get("info"), dict) else {}
+        team_info = info.get("teamInfo") if isinstance(info.get("teamInfo"), dict) else {}
+        names = team_info.get("teamNames") if isinstance(team_info.get("teamNames"), dict) else {}
+        candidate_codes = {
+            str(value).strip().upper()
+            for value in (
+                row.get("id"), info.get("code"), info.get("teamId"),
+                team_info.get("teamId"), names.get("code"), names.get("code_site"),
+                names.get("codeSite"),
+            )
+            if value
+        }
+        if "SAIK" in candidate_codes:
+            candidate_codes.add("SKE")
+        if "SKE" in candidate_codes:
+            candidate_codes.add("SAIK")
+        if configured not in candidate_codes:
+            continue
+        team_name = (
+            team_info.get("siteTeamDisplayName") or names.get("full")
+            or names.get("long") or names.get("short") or info.get("code")
+        )
+        return {
+            "team_code": configured,
+            "team_name": team_name,
+            "rank": row.get("rank"),
+            "rank_diff": row.get("rankDiff"),
+            "points": row.get("P"),
+            "games_played": row.get("GP"),
+            "wins": row.get("W"),
+            "overtime_wins": row.get("OTW"),
+            "overtime_losses": row.get("OTL"),
+            "losses": row.get("L"),
+            "goals_for": row.get("GF"),
+            "goals_against": row.get("GA"),
+            "goal_difference": row.get("Diff"),
+            "teams": len(rows),
+            "season": payload.get("season"),
+            "game_type": payload.get("gameType"),
+        }
+
+
 def _parse_datetime(value: Any) -> datetime | None:
     if not value:
         return None
@@ -251,6 +304,32 @@ def choose_team_game(games: list[ScheduleGame], team_code: str, now: datetime | 
     if upcoming:
         return min(upcoming, key=lambda game: game.start_time or datetime.max.replace(tzinfo=timezone.utc))
     return None
+
+
+def choose_next_game(
+    games: list[ScheduleGame], team_code: str, now: datetime,
+    current_game: ScheduleGame | None = None,
+) -> ScheduleGame | None:
+    """Select the next scheduled game, including a selected pre-game fixture."""
+    now = now.astimezone(timezone.utc)
+    current_is_active = bool(
+        current_game and (current_game.is_live or current_game.started_recently(now))
+    )
+    candidates = []
+    for game in games:
+        if (
+            game.is_finished
+            or not game.start_time
+            or team_code.strip().upper() not in team_codes(game.home_team) | team_codes(game.away_team)
+        ):
+            continue
+        if current_is_active and current_game and current_game.start_time:
+            if game.start_time <= current_game.start_time:
+                continue
+        elif game.start_time < now:
+            continue
+        candidates.append(game)
+    return min(candidates, key=lambda game: game.start_time) if candidates else None
 
 
 def current_season_label(now: datetime | None = None) -> str:

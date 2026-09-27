@@ -5,10 +5,12 @@ from pathlib import Path
 
 from custom_components.shl.discovery import (
     choose_team_game,
+    choose_next_game,
     current_season_label,
     discover_team_game,
     game_type_identifiers,
     latest_ssgt_identifiers,
+    parse_team_standing,
     parse_schedule,
     schedule_identifiers,
 )
@@ -72,6 +74,29 @@ def test_choose_next_game_for_any_configured_team():
     assert selected is not None and selected.game_uuid == "next"
 
 
+def test_next_game_includes_pregame_selected_game_and_advances_during_live_game():
+    games = parse_schedule({"games": [
+        {"gameUuid": "current", "rawStartDateTime": "2026-09-29T17:00:00Z",
+         "state": "pre-game", "homeTeamInfo": {"code": "SAIK"},
+         "awayTeamInfo": {"code": "LHF"}},
+        {"gameUuid": "following", "rawStartDateTime": "2026-10-02T17:00:00Z",
+         "state": "pre-game", "homeTeamInfo": {"code": "LHC"},
+         "awayTeamInfo": {"code": "SKE"}},
+    ]})
+    now = datetime(2026, 9, 29, 16, 0, tzinfo=timezone.utc)
+    assert choose_next_game(games, "SKE", now, games[0]).game_uuid == "current"
+
+    live = parse_schedule({"games": [{
+        "gameUuid": "current-live", "rawStartDateTime": "2026-09-29T15:00:00Z",
+        "state": "Period1", "homeTeamInfo": {"code": "SAIK"},
+        "awayTeamInfo": {"code": "LHF"},
+    }, *[
+        {"gameUuid": game.game_uuid, **game.raw}
+        for game in games[1:]
+    ]]})
+    assert choose_next_game(live, "SKE", now, live[0]).game_uuid == "following"
+
+
 def test_schedule_filter_identifier_extraction_and_season_rollover():
     assert schedule_identifiers(
         _fixture("season_series_game_types_filter.json"),
@@ -119,6 +144,29 @@ def test_real_schedule_fixture_matches_ske_and_selects_next_game():
     assert selected.game_uuid == "xheynl9ev5"
     assert selected.home_team["code"] == "SAIK"
     assert selected.state == "pre-game"
+
+
+def test_real_standings_fixture_finds_skelleftea_through_either_team_code():
+    standings = _fixture("team_standings_2026-2027.json")
+    ske = parse_team_standing(standings, "SKE")
+    saik = parse_team_standing(standings, "SAIK")
+    assert ske is not None
+    assert saik is not None
+    assert ske["rank"] == saik["rank"]
+    assert ske["points"] == saik["points"]
+    assert ske["rank"] == 8
+    assert ske["points"] == 4
+    assert ske["games_played"] == 3
+    assert ske["wins"] == 1
+    assert ske["overtime_wins"] == 0
+    assert ske["overtime_losses"] == 1
+    assert ske["losses"] == 1
+    assert ske["goals_for"] == 10
+    assert ske["goals_against"] == 9
+    assert ske["goal_difference"] == 1
+    assert ske["rank_diff"] == -4
+    assert ske["team_name"] == "Skellefteå AIK"
+    assert ske["teams"] == 14
 
 
 def test_discovery_uses_latest_ssgt_identifiers_and_schedule():

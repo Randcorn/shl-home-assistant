@@ -10,7 +10,8 @@
   ordering, duplicate suppression, correction-aware `shl_event`, and
   `shl_goal` emission are implemented. Current score, period, and clock can be
   sourced from the newest play-by-play item when `game-info` lacks them.
-- Game, score, and last-goal sensors are implemented. Lifecycle events are
+- Game, score, last-goal, points, league-position, and individual standings
+  statistic sensors are implemented. Lifecycle events are
   inferred from game-overview state and period transitions when those fields
   are present.
 - Parser and event tests cover real captured filter, schedule, and

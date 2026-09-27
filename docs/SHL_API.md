@@ -132,6 +132,18 @@ Observed statistic keys include:
 `PP_perc`, `SH_perc`, `PPG`, `SHGA`, `SHG`, `PPGA`, `NumPP`, `NumSH`, `Hits`,
 `BkS`, `SiBk`.
 
+## Team standings
+`GET /api/gameday/team-standings/{ssgtUuid}`
+
+Verified for the active 2026/27 SHL regular season using the `ssgtUuid` from a
+schedule row (`qa98unlbd6`). The response contains `leagueStandings`; each row
+includes `id`, `rank`, `rankDiff`, `GP`, `P`, `W`, `OTW`, `OTL`, `L`, `GF`,
+`GA`, and `Diff`. Team identity is nested in `info.teamInfo.teamNames`.
+Skellefteå's row ID is `SAIK`, while the nested site code is `SKE`, so match
+both codes when selecting a configured team's row. The integration refreshes
+this data independently of live-game polling and exposes points and league
+position sensors.
+
 ## Other
 `GET /api/gameday/post-game-data/team-stats/{gameUuid}?ssgtUuid=...&homeTeamUuid=...&awayTeamUuid=...`
 
