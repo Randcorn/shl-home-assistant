@@ -1,50 +1,283 @@
+"""Schedule discovery, game polling, and idempotent event delivery."""
+
 from __future__ import annotations
-from datetime import timedelta
+
+import asyncio
+import logging
+from datetime import datetime, timedelta, timezone
 from typing import Any
+
+from homeassistant.helpers.storage import Store
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+
 from .api import ShlApi, ShlApiError
-from .const import DOMAIN, OFF_GAME_INTERVAL, LIVE_GAME_INTERVAL
+from .const import (
+    DOMAIN,
+    EVENT_GOAL,
+    EVENT_PLAY_BY_PLAY,
+    LIVE_GAME_INTERVAL,
+    OFF_GAME_INTERVAL,
+)
+from .discovery import (
+    ScheduleGame, discover_team_game, is_finished_state, is_live_state,
+    normalize_state, team_codes,
+)
+from .events import process_play_by_play
+from .models import (
+    GoalEvent, parse_game_overview, parse_goal, parse_live_snapshot,
+)
+
+DISCOVERY_INTERVAL = timedelta(minutes=5)
+PERSISTENCE_VERSION = 1
+
 
 class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
-    def __init__(self, hass, api: ShlApi, team_code: str):
+    """Find games and poll SHL data at a rate appropriate to game state."""
+
+    def __init__(
+        self, hass, api: ShlApi, team_code: str, store: Store, team_name: str = ""
+    ) -> None:
         self.api = api
-        self.team_code = team_code
+        self.team_code = team_code.strip().upper()
+        self.team_name = team_name.strip() or self.team_code
+        self.store = store
         self.current_game_uuid: str | None = None
-        self.seen_revisions: dict[str, int] = {}
-        super().__init__(hass, __name__, name=DOMAIN,
-                         update_interval=timedelta(seconds=OFF_GAME_INTERVAL))
+        self._selected_game: ScheduleGame | None = None
+        self._all_games: list[ScheduleGame] = []
+        self._last_discovery: datetime | None = None
+        self._seen_revisions: dict[str, int] = {}
+        self._event_baseline_ready = False
+        super().__init__(
+            hass, logging.getLogger(__name__), name=DOMAIN,
+            update_interval=timedelta(seconds=OFF_GAME_INTERVAL),
+        )
+
+    async def async_load_state(self) -> None:
+        """Restore the active game's event cursor across Home Assistant restarts."""
+        saved = await self.store.async_load()
+        if not isinstance(saved, dict):
+            return
+        game_uuid = saved.get("game_uuid")
+        revisions = saved.get("seen_revisions")
+        if isinstance(game_uuid, str) and isinstance(revisions, dict):
+            self.current_game_uuid = game_uuid
+            self._seen_revisions = {
+                str(uid): int(revision)
+                for uid, revision in revisions.items()
+                if isinstance(revision, (int, str)) and str(revision).isdigit()
+            }
+            self._event_baseline_ready = True
+
+    async def _discover(self, now: datetime) -> None:
+        game, games = await discover_team_game(self.api, self.team_code)
+        previous_uuid = self.current_game_uuid
+        previous_game = (self.data or {}).get("game") or {}
+        previous_schedule = next(
+            (item for item in games if item.game_uuid == previous_uuid),
+            self._selected_game,
+        )
+        if (
+            previous_uuid
+            and previous_game.get("gameUuid") == previous_uuid
+            and is_live_state(previous_game.get("state"))
+            and previous_schedule
+            and previous_schedule.is_finished
+            and (not game or game.game_uuid != previous_uuid)
+        ):
+            self.hass.bus.async_fire("shl_game_ended", {
+                "game_uuid": previous_uuid,
+                "team_code": self.team_code,
+                "home_team": previous_game.get("home_team"),
+                "away_team": previous_game.get("away_team"),
+            })
+        self._all_games = games
+        self._selected_game = game
+        self._last_discovery = now
+        new_uuid = game.game_uuid if game else None
+        if new_uuid != self.current_game_uuid:
+            self.current_game_uuid = new_uuid
+            self._seen_revisions = {}
+            self._event_baseline_ready = False
+
+    def _next_game(self) -> ScheduleGame | None:
+        if not self._selected_game:
+            return None
+        candidates = [
+            game for game in self._all_games
+            if game.game_uuid != self._selected_game.game_uuid
+            and game.start_time and self._selected_game.start_time
+            and game.start_time > self._selected_game.start_time
+            and self.team_code in team_codes(game.home_team) | team_codes(game.away_team)
+            and not game.is_finished
+        ]
+        return min(candidates, key=lambda game: game.start_time) if candidates else None
+
+    @staticmethod
+    def _schedule_game_data(game: ScheduleGame | None) -> dict[str, Any] | None:
+        if game is None:
+            return None
+        return {
+            **game.raw,
+            "gameUuid": game.game_uuid,
+            "state": game.state,
+            "startDateTime": game.start_time.isoformat() if game.start_time else None,
+            "home_team": game.home_team,
+            "away_team": game.away_team,
+        }
+
+    async def _persist_revisions(self) -> None:
+        await self.store.async_save({
+            "game_uuid": self.current_game_uuid,
+            "seen_revisions": self._seen_revisions,
+        })
+
+    @staticmethod
+    def _int(value: Any) -> int:
+        try:
+            return int(value)
+        except (TypeError, ValueError):
+            return 0
 
     async def _async_update_data(self) -> dict[str, Any]:
-        if not self.current_game_uuid:
-            return {"game": None, "events": [], "new_events": [], "goals": []}
+        now = datetime.now(timezone.utc)
         try:
-            info = await self.api.game_info(self.current_game_uuid)
-            events = await self.api.play_by_play(self.current_game_uuid)
+            if (
+                self._last_discovery is None
+                or now - self._last_discovery >= DISCOVERY_INTERVAL
+                or (self._selected_game and self._selected_game.is_finished)
+            ):
+                await self._discover(now)
+
+            selected = self._selected_game
+            if selected is None:
+                self.update_interval = timedelta(seconds=OFF_GAME_INTERVAL)
+                return {
+                    "game": None, "next_game": None, "events": [],
+                    "new_events": [], "goals": [], "last_goal": None,
+                }
+
+            game_data = self._schedule_game_data(selected) or {}
+            next_game = self._schedule_game_data(self._next_game())
+            changed_events: list[dict[str, Any]] = []
+            goals: list[dict[str, Any]] = []
+            all_events: list[dict[str, Any]] = []
+            live = selected.is_live or selected.started_recently(now)
+
+            if live:
+                overview, all_events = await self._fetch_live_data(selected.game_uuid)
+                overview_data = parse_game_overview(overview)
+                game_data.update(overview_data)
+                game_data["home_team"] = {
+                    **selected.home_team, **(game_data.get("home_team") or {})
+                }
+                game_data["away_team"] = {
+                    **selected.away_team, **(game_data.get("away_team") or {})
+                }
+                snapshot = parse_live_snapshot(all_events)
+                for key in ("period", "time", "realWorldTime", "updatedTime"):
+                    if game_data.get(key) is None and snapshot.get(key) is not None:
+                        game_data[key] = snapshot[key]
+                for key in ("home_team", "away_team"):
+                    if snapshot.get(key):
+                        current_team = game_data.get(key) or {}
+                        live_team = snapshot[key]
+                        overview_team = overview_data.get(key) or {}
+                        game_data[key] = {
+                            **live_team, **current_team,
+                            "score": overview_team.get("score", live_team.get("score", current_team.get("score"))),
+                        }
+                state = game_data.get("state") or snapshot.get("state") or selected.state
+                game_data["state"] = state
+                live = is_live_state(state) or (
+                    selected.started_recently(now) and not is_finished_state(state)
+                )
+                self._fire_lifecycle_events(selected.game_uuid, game_data, state)
+                changed_events, goals = process_play_by_play(all_events, self._seen_revisions)
+                establish_baseline = not self._event_baseline_ready
+                if establish_baseline:
+                    # On setup or game switch, seed the cursor without replaying
+                    # every goal already present in the live feed.
+                    changed_events = []
+                    goals = []
+                    self._event_baseline_ready = True
+                if changed_events or establish_baseline:
+                    await self._persist_revisions()
+                for event in changed_events:
+                    payload = {
+                        **event,
+                        "configured_team_code": self.team_code,
+                        "game_uuid": selected.game_uuid,
+                        "is_correction": bool(event.get("isCorrection")),
+                    }
+                    self.hass.bus.async_fire(EVENT_PLAY_BY_PLAY, payload)
+                for raw_goal in goals:
+                    goal = parse_goal(raw_goal)
+                    if goal:
+                        self.hass.bus.async_fire(EVENT_GOAL, {
+                            **goal.as_dict(),
+                            "team_code": goal.team_code or self.team_code,
+                            "configured_team_code": self.team_code,
+                        })
+
+            self.update_interval = timedelta(
+                seconds=LIVE_GAME_INTERVAL if live else OFF_GAME_INTERVAL
+            )
+            goal_models: list[GoalEvent] = [
+                goal for event in all_events if (goal := parse_goal(event)) is not None
+            ]
+            last_goal = max(goal_models, key=lambda goal: (goal.event_id, goal.revision), default=None)
+            return {
+                "game": game_data,
+                "next_game": next_game,
+                "events": all_events,
+                "new_events": changed_events,
+                "goals": goals,
+                "last_goal": last_goal.as_dict() if last_goal else None,
+            }
         except ShlApiError as err:
             raise UpdateFailed(str(err)) from err
 
-        new_events = []
-        for event in sorted(events, key=lambda e: (
-            int(e.get("eventId", 0)), int(e.get("revision", 0)))):
-            uid = event.get("eventUuid")
-            if not uid:
-                continue
-            revision = int(event.get("revision", 0))
-            previous = self.seen_revisions.get(uid)
-            if previous is None or revision > previous:
-                self.seen_revisions[uid] = revision
-                new_events.append(event)
-
-        state = info.get("gameInfo", {})
-        live = str(state.get("state", "")).lower() in {
-            "live", "in_progress", "in-progress", "game_started"
-        }
-        self.update_interval = timedelta(
-            seconds=LIVE_GAME_INTERVAL if live else OFF_GAME_INTERVAL
+    async def _fetch_live_data(self, game_uuid: str) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+        """Fetch the overview and full event list concurrently."""
+        overview, events = await asyncio.gather(
+            self.api.game_overview(game_uuid),
+            self.api.play_by_play(game_uuid),
         )
-        return {
-            "game": {**state, "home_team": info.get("homeTeam", {}),
-                     "away_team": info.get("awayTeam", {})},
-            "events": events, "new_events": new_events,
-            "goals": [e for e in new_events if e.get("type") == "goal"],
+        return overview, events
+
+    def _fire_lifecycle_events(
+        self, game_uuid: str, game: dict[str, Any], new_state: Any
+    ) -> None:
+        """Emit lifecycle events only when the selected game's state changes."""
+        previous = (self.data or {}).get("game") or {}
+        if previous.get("gameUuid") != game_uuid:
+            return
+        old_state = previous.get("state")
+        context = {
+            "game_uuid": game_uuid,
+            "team_code": self.team_code,
+            "home_team": game.get("home_team"),
+            "away_team": game.get("away_team"),
         }
+        old_period = self._int(previous.get("period"))
+        new_period = self._int(game.get("period"))
+        if old_state != new_state:
+            if not is_live_state(old_state) and is_live_state(new_state):
+                self.hass.bus.async_fire("shl_game_started", context)
+            if is_live_state(old_state) and is_finished_state(new_state):
+                self.hass.bus.async_fire("shl_game_ended", context)
+                if old_period > 0 and not self._is_period_break(old_state):
+                    self.hass.bus.async_fire(
+                        "shl_period_ended", {**context, "period": old_period}
+                    )
+        if new_period > old_period:
+            if old_period > 0 and not self._is_period_break(previous.get("state")):
+                self.hass.bus.async_fire("shl_period_ended", {**context, "period": old_period})
+            self.hass.bus.async_fire("shl_period_started", {**context, "period": new_period})
+        elif old_period > 0 and self._is_period_break(new_state) and not self._is_period_break(old_state):
+            self.hass.bus.async_fire("shl_period_ended", {**context, "period": old_period})
+
+    @staticmethod
+    def _is_period_break(value: Any) -> bool:
+        state = normalize_state(value)
+        return "break" in state or "intermission" in state

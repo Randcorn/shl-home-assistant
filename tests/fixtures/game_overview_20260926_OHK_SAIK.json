@@ -1,0 +1,30 @@
+{
+  "gameUuid": "u0ribje54r",
+  "homeTeam": {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "place": "home",
+    "score": 0,
+    "teamId": "OHK",
+    "teamName": "Örebro Hockey",
+    "teamCode": "ÖRE",
+    "gameUuid": "u0ribje54r"
+  },
+  "awayTeam": {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "place": "away",
+    "score": 0,
+    "teamId": "SAIK",
+    "teamName": "Skellefteå AIK",
+    "teamCode": "SKE",
+    "gameUuid": "u0ribje54r"
+  },
+  "homeGoals": 3,
+  "awayGoals": 0,
+  "state": "GameEnded",
+  "time": {
+    "period": 3,
+    "periodTime": "20:00"
+  }
+}

@@ -20,3 +20,11 @@ def test_parse_goal_fixture():
 
 def test_non_goal_is_ignored():
     assert parse_goal({"type": "shot"}) is None
+
+def test_goal_false_string_flags_stay_false():
+    goal = parse_goal({
+        "type": "goal", "isPenaltyShot": "false", "isEmptyNetGoal": "false"
+    })
+    assert goal is not None
+    assert goal.is_penalty_shot is False
+    assert goal.is_empty_net is False

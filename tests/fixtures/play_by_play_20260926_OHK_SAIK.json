@@ -1,0 +1,6631 @@
+[
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 161,
+    "eventUuid": "62dd04e3-519c-5838-9129-73f793bb76dc",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "20:00",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-09-26T20:15:35.227378",
+    "updatedTime": "2026-09-26T18:15:35.276172",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4835",
+      "firstName": "Strauss",
+      "familyName": "Mann",
+      "jerseyToday": "38"
+    },
+    "isEntering": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 160,
+    "eventUuid": "c8d69950-460e-53a5-b295-6fa11f319240",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "20:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-09-26T20:15:33.890559",
+    "updatedTime": "2026-09-26T18:15:33.945262",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4612",
+      "firstName": "Filip",
+      "familyName": "Larsson",
+      "jerseyToday": "39"
+    },
+    "isEntering": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 159,
+    "eventUuid": "b533891c-1528-59db-a4d6-4849ae14369b",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "19:59",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-09-26T20:10:33.831217",
+    "updatedTime": "2026-09-26T18:11:12.895962",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "0"
+        }
+      ]
+    },
+    "locationX": 402,
+    "locationY": 4,
+    "homeGoals": 3,
+    "awayGoals": 0,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": true,
+    "pop": [
+      {
+        "playerId": "4287",
+        "firstName": "Erik",
+        "familyName": "Norén",
+        "jerseyToday": "4"
+      },
+      {
+        "playerId": "5727",
+        "firstName": "Josh",
+        "familyName": "Dickinson",
+        "jerseyToday": "19"
+      },
+      {
+        "playerId": "2655",
+        "firstName": "Linus",
+        "familyName": "Arnesson",
+        "jerseyToday": "28"
+      },
+      {
+        "playerId": "4612",
+        "firstName": "Filip",
+        "familyName": "Larsson",
+        "jerseyToday": "39"
+      },
+      {
+        "playerId": "3020",
+        "firstName": "Patrik",
+        "familyName": "Karlkvist",
+        "jerseyToday": "89"
+      },
+      {
+        "playerId": "7075",
+        "firstName": "Wojciech",
+        "familyName": "Stachowiak",
+        "jerseyToday": "91"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "3648",
+        "firstName": "Viktor",
+        "familyName": "Grahn",
+        "jerseyToday": "3"
+      },
+      {
+        "playerId": "6494",
+        "firstName": "Valter",
+        "familyName": "Lindberg",
+        "jerseyToday": "12"
+      },
+      {
+        "playerId": "2388",
+        "firstName": "Andreas",
+        "familyName": "Johnson",
+        "jerseyToday": "14"
+      },
+      {
+        "playerId": "1674",
+        "firstName": "Pär",
+        "familyName": "Lindholm",
+        "jerseyToday": "17"
+      },
+      {
+        "playerId": "7041",
+        "firstName": "Hudson",
+        "familyName": "Fasching",
+        "jerseyToday": "20"
+      },
+      {
+        "playerId": "2337",
+        "firstName": "Jonathan",
+        "familyName": "Pudas",
+        "jerseyToday": "64"
+      }
+    ],
+    "assists": {},
+    "goalStatus": "EQ",
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 158,
+    "eventUuid": "0a497fd7-a53a-5bcd-b738-feb987fd5bbb",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "19:52",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:10:22.8",
+    "updatedTime": "2026-09-26T18:11:14.115734",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 92,
+    "locationY": 22,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 157,
+    "eventUuid": "605f8585-7fc6-519e-a471-2a3c089be45d",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "19:59",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-09-26T20:10:57.25975",
+    "updatedTime": "2026-09-26T18:15:35.276172",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 3
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4835",
+      "firstName": "Strauss",
+      "familyName": "Mann",
+      "jerseyToday": "38"
+    },
+    "isEntering": true,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 154,
+    "eventUuid": "d9f6c8e2-8338-5264-adeb-716aed91a14e",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "19:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:10:18.54",
+    "updatedTime": "2026-09-26T18:10:31.40634",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6494",
+      "firstName": "Valter",
+      "familyName": "Lindberg",
+      "jerseyToday": "12"
+    },
+    "locationX": 124,
+    "locationY": -86,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 153,
+    "eventUuid": "81dfd775-d0f4-5cae-a7f9-01550bfe137f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "18:23",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:08:53.34",
+    "updatedTime": "2026-09-26T18:09:07.269257",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 180,
+    "locationY": 101,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 152,
+    "eventUuid": "480796bb-7352-5af2-858b-acb896aa94d0",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "18:14",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:08:44.56",
+    "updatedTime": "2026-09-26T18:08:57.424216",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 179,
+    "locationY": 6,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 151,
+    "eventUuid": "a66e85a3-9bc9-5965-a276-c42a56a8d5b2",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "17:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:08:25.82",
+    "updatedTime": "2026-09-26T18:08:46.982647",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 157,
+    "locationY": 109,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 150,
+    "eventUuid": "d045f2ec-0ab3-5fb5-858e-390be0c22558",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "17:43",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:08:13.32",
+    "updatedTime": "2026-09-26T18:08:36.465829",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 180,
+    "locationY": -17,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 149,
+    "eventUuid": "8bd64ead-81b4-5051-bc2b-b563fda53635",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "17:38",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-09-26T20:07:43.028593",
+    "updatedTime": "2026-09-26T18:07:43.11163",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4835",
+      "firstName": "Strauss",
+      "familyName": "Mann",
+      "jerseyToday": "38"
+    },
+    "isEntering": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 148,
+    "eventUuid": "68214ac4-b119-5534-901c-50aa792a4028",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "17:28",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:07:06.4",
+    "updatedTime": "2026-09-26T18:07:31.027317",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3296",
+      "firstName": "Rickard",
+      "familyName": "Hugg",
+      "jerseyToday": "96"
+    },
+    "locationX": 76,
+    "locationY": -43,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 146,
+    "eventUuid": "b562d873-351a-5149-bae4-15d6f7ffc3b1",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "17:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:06:57.54",
+    "updatedTime": "2026-09-26T18:07:09.197275",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 170,
+    "locationY": 26,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 145,
+    "eventUuid": "485ed96d-b420-5426-8262-55590c92c891",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "17:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:06:38.98",
+    "updatedTime": "2026-09-26T18:06:58.915101",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 142,
+    "locationY": 98,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 144,
+    "eventUuid": "75f8c7fb-2a06-5201-a61a-799e123a2553",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "16:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:06:33.36",
+    "updatedTime": "2026-09-26T18:06:47.677711",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 116,
+    "locationY": 24,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 143,
+    "eventUuid": "f132252d-e4d8-5602-b553-9564a9a0d3e0",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "16:08",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:03:40.44",
+    "updatedTime": "2026-09-26T18:04:36.878644",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "7075",
+      "firstName": "Wojciech",
+      "familyName": "Stachowiak",
+      "jerseyToday": "91"
+    },
+    "locationX": 11,
+    "locationY": -21,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 141,
+    "eventUuid": "1956691d-f852-573d-8a2b-c35e152a6561",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "16:15",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:03:46.82",
+    "updatedTime": "2026-09-26T18:04:05.390042",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5632",
+      "firstName": "Kalle",
+      "familyName": "Kossila",
+      "jerseyToday": "11"
+    },
+    "locationX": 68,
+    "locationY": -45,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 140,
+    "eventUuid": "290540cf-6669-56be-959e-45419d3666bb",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "15:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:03:31.54",
+    "updatedTime": "2026-09-26T18:03:45.416546",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 103,
+    "locationY": -39,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 139,
+    "eventUuid": "2f7a3b10-2c21-5035-a88f-34ae2bf89feb",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "15:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:03:08.68",
+    "updatedTime": "2026-09-26T18:03:24.662938",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6494",
+      "firstName": "Valter",
+      "familyName": "Lindberg",
+      "jerseyToday": "12"
+    },
+    "locationX": 132,
+    "locationY": -44,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 138,
+    "eventUuid": "8f40dd42-ef86-5a30-9396-1d08dabe5e70",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "15:03",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:02:35.66",
+    "updatedTime": "2026-09-26T18:03:13.737404",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4548",
+      "firstName": "Mikkel",
+      "familyName": "Aagaard",
+      "jerseyToday": "29"
+    },
+    "locationX": 20,
+    "locationY": 7,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 137,
+    "eventUuid": "b2e4a3b9-c80e-5d23-be9b-464116e4eb9b",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "15:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:02:49.42",
+    "updatedTime": "2026-09-26T18:03:03.435735",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 88,
+    "locationY": 103,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 136,
+    "eventUuid": "04c261b7-54b1-5e79-b3b8-25add7d38ccb",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "12:30",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:59:07.86",
+    "updatedTime": "2026-09-26T18:01:58.147605",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3296",
+      "firstName": "Rickard",
+      "familyName": "Hugg",
+      "jerseyToday": "96"
+    },
+    "locationX": 67,
+    "locationY": -39,
+    "goalSection": 5,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 135,
+    "eventUuid": "bd64fce5-47ce-5a4b-be53-3a9fd7ea3688",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "12:26",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:59:03.74",
+    "updatedTime": "2026-09-26T18:01:47.822869",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3296",
+      "firstName": "Rickard",
+      "familyName": "Hugg",
+      "jerseyToday": "96"
+    },
+    "locationX": 7,
+    "locationY": -21,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 134,
+    "eventUuid": "6d2196f5-6eff-5a99-ab95-cae724b501c6",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "12:27",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:59:05.2",
+    "updatedTime": "2026-09-26T18:01:37.078501",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3296",
+      "firstName": "Rickard",
+      "familyName": "Hugg",
+      "jerseyToday": "96"
+    },
+    "locationX": 19,
+    "locationY": -19,
+    "goalSection": 4,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 133,
+    "eventUuid": "120d19e3-95b4-5a7b-bff7-5194cff8e78e",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "13:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T20:01:13.64",
+    "updatedTime": "2026-09-26T18:01:25.488356",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 151,
+    "locationY": -145,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 131,
+    "eventUuid": "f820754a-6391-5655-969d-1dd061c58f86",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "06:48",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:51:29.52",
+    "updatedTime": "2026-09-26T17:59:29.331759",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4705",
+      "firstName": "Max",
+      "familyName": "Veronneau",
+      "jerseyToday": "51"
+    },
+    "locationX": 4,
+    "locationY": -17,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 129,
+    "eventUuid": "ff2e0117-89c1-5012-9552-f0e35bccc486",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "12:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:59:01.78",
+    "updatedTime": "2026-09-26T17:59:18.485754",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 151,
+    "locationY": 25,
+    "goalSection": 6,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 128,
+    "eventUuid": "15348887-1c6c-5dbb-80f5-f31a8780046f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "10:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:57:10.24",
+    "updatedTime": "2026-09-26T17:58:35.240067",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4774",
+      "firstName": "Milton",
+      "familyName": "Oscarson",
+      "jerseyToday": "29"
+    },
+    "locationX": 8,
+    "locationY": -15,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 127,
+    "eventUuid": "2136ae81-50b6-5e9a-b76d-72aeea9f8488",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "11:35",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:58:12.62",
+    "updatedTime": "2026-09-26T17:58:24.849464",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 144,
+    "locationY": -121,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 126,
+    "eventUuid": "20311025-88b6-564d-87c2-a8a38366456d",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "11:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:57:53.54",
+    "updatedTime": "2026-09-26T17:58:03.684563",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 120,
+    "locationY": 81,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 125,
+    "eventUuid": "5b7fbd09-49bb-5f39-bd2f-11951990166e",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "11:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:57:42.28",
+    "updatedTime": "2026-09-26T17:57:53.577804",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 10,
+    "locationY": 35,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 124,
+    "eventUuid": "232a6cc9-e2f6-57fc-aa9c-9d1e2ef5cc14",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "11:03",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:57:41.06",
+    "updatedTime": "2026-09-26T17:57:53.577804",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 124,
+    "locationY": 12,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 123,
+    "eventUuid": "f15b7293-70e8-5eb8-b4ac-3c481bb120f8",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "11:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:57:37.8",
+    "updatedTime": "2026-09-26T17:57:53.577804",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 154,
+    "locationY": 59,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 122,
+    "eventUuid": "da9cc8c8-6de0-55ff-84d7-5703ed886088",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "09:46",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:56:24.4",
+    "updatedTime": "2026-09-26T17:56:40.172204",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4548",
+      "firstName": "Mikkel",
+      "familyName": "Aagaard",
+      "jerseyToday": "29"
+    },
+    "locationX": 43,
+    "locationY": 33,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 120,
+    "eventUuid": "172795a9-7e0a-5143-bdb6-5741bacf0a5d",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "08:45",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:55:22.62",
+    "updatedTime": "2026-09-26T17:55:57.49716",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 162,
+    "locationY": -145,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 119,
+    "eventUuid": "b5b29e61-8855-5086-aab1-d3f6d501e4e7",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "08:58",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:55:35.58",
+    "updatedTime": "2026-09-26T17:55:47.531439",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 87,
+    "locationY": -123,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 117,
+    "eventUuid": "12905510-8573-5cf2-91c4-15cebbb5c412",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "08:39",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:55:16.96",
+    "updatedTime": "2026-09-26T17:55:37.4343",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 155,
+    "locationY": -55,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 116,
+    "eventUuid": "54b87e30-5bbf-5985-9fb0-072e1ae55a21",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "08:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:54:21.18",
+    "updatedTime": "2026-09-26T17:54:44.997747",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 123,
+    "locationY": 29,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 115,
+    "eventUuid": "0d4020ed-d0a6-5f8d-8f2a-e91b7815d8f3",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "08:08",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:53:23.32",
+    "updatedTime": "2026-09-26T17:53:37.468441",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 93,
+    "locationY": -134,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 114,
+    "eventUuid": "79bd0a6d-8bb9-5c33-a096-465f871ef91b",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "07:34",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:52:15.7",
+    "updatedTime": "2026-09-26T17:52:25.330119",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3648",
+      "firstName": "Viktor",
+      "familyName": "Grahn",
+      "jerseyToday": "3"
+    },
+    "locationX": 154,
+    "locationY": -77,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 113,
+    "eventUuid": "22ca8ca4-3a83-5450-bc43-d38bffe875e2",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "07:27",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:52:08.86",
+    "updatedTime": "2026-09-26T17:52:25.330119",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 164,
+    "locationY": 89,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 112,
+    "eventUuid": "8fa415c1-ce91-50f9-ac72-b786db993c4d",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "07:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:51:58.58",
+    "updatedTime": "2026-09-26T17:52:15.014197",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 42,
+    "locationY": 73,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 111,
+    "eventUuid": "f3a46651-6f3f-59e0-a379-8f6a0a50f3d1",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "06:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:51:00.5",
+    "updatedTime": "2026-09-26T17:51:21.191463",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4548",
+      "firstName": "Mikkel",
+      "familyName": "Aagaard",
+      "jerseyToday": "29"
+    },
+    "locationX": 139,
+    "locationY": 114,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 110,
+    "eventUuid": "62d7cfbb-76bd-529e-8987-1f32e3ecc378",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "04:29",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:47:30.6",
+    "updatedTime": "2026-09-26T17:50:59.016095",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "6121",
+      "firstName": "Sampo",
+      "familyName": "Ranta",
+      "jerseyToday": "10"
+    },
+    "locationX": 136,
+    "locationY": -38,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 109,
+    "eventUuid": "cb68d493-c175-54f9-9169-582c20b1c17b",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "06:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:50:16.3",
+    "updatedTime": "2026-09-26T17:50:27.452957",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 119,
+    "locationY": -143,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 108,
+    "eventUuid": "78ec72b1-4b3c-56dc-ae2b-3f4c15593c24",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "05:58",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:50:07.44",
+    "updatedTime": "2026-09-26T17:50:27.452957",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 142,
+    "locationY": -61,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 107,
+    "eventUuid": "5208ce12-eefa-505c-8cec-c16de0cd4afa",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "03:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:46:56.903",
+    "updatedTime": "2026-09-26T17:50:07.322422",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 99,
+    "locationY": 2,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 106,
+    "eventUuid": "1ff513c8-3e6b-5991-ad66-0c08985f3475",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "05:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:49:13.72",
+    "updatedTime": "2026-09-26T17:49:24.532922",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 166,
+    "locationY": -120,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 105,
+    "eventUuid": "4dba13c5-bc0f-5567-b6b7-35b11ca7fd00",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "04:44",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:48:53.36",
+    "updatedTime": "2026-09-26T17:49:14.173297",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3224",
+      "firstName": "Glenn",
+      "familyName": "Gustafsson",
+      "jerseyToday": "37"
+    },
+    "locationX": 173,
+    "locationY": -39,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 104,
+    "eventUuid": "60cc21b7-d2a5-5c51-b188-a4758a96bfd1",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "04:34",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goal",
+    "realWorldTime": "2026-09-26T19:47:42.255084",
+    "updatedTime": "2026-09-26T17:48:23.357338",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 2
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3246",
+      "firstName": "William",
+      "familyName": "Wikman",
+      "jerseyToday": "17",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "0"
+        }
+      ]
+    },
+    "locationX": 26,
+    "locationY": -9,
+    "homeGoals": 2,
+    "awayGoals": 0,
+    "goalSection": 9,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "3262",
+        "firstName": "Filip",
+        "familyName": "Berglund",
+        "jerseyToday": "6"
+      },
+      {
+        "playerId": "6121",
+        "firstName": "Sampo",
+        "familyName": "Ranta",
+        "jerseyToday": "10"
+      },
+      {
+        "playerId": "3246",
+        "firstName": "William",
+        "familyName": "Wikman",
+        "jerseyToday": "17"
+      },
+      {
+        "playerId": "5727",
+        "firstName": "Josh",
+        "familyName": "Dickinson",
+        "jerseyToday": "19"
+      },
+      {
+        "playerId": "4612",
+        "firstName": "Filip",
+        "familyName": "Larsson",
+        "jerseyToday": "39"
+      },
+      {
+        "playerId": "4485",
+        "firstName": "Robin",
+        "familyName": "Salo",
+        "jerseyToday": "42"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "6492",
+        "firstName": "Rasmus",
+        "familyName": "Bergqvist",
+        "jerseyToday": "4"
+      },
+      {
+        "playerId": "2388",
+        "firstName": "Andreas",
+        "familyName": "Johnson",
+        "jerseyToday": "14"
+      },
+      {
+        "playerId": "1552",
+        "firstName": "Oscar",
+        "familyName": "Lindberg",
+        "jerseyToday": "24"
+      },
+      {
+        "playerId": "4835",
+        "firstName": "Strauss",
+        "familyName": "Mann",
+        "jerseyToday": "38"
+      },
+      {
+        "playerId": "2217",
+        "firstName": "Arvid",
+        "familyName": "Lundberg",
+        "jerseyToday": "52"
+      },
+      {
+        "playerId": "6202",
+        "firstName": "Oskar",
+        "familyName": "Vuollet",
+        "jerseyToday": "72"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "6121",
+        "firstName": "Sampo",
+        "familyName": "Ranta",
+        "jerseyToday": "10",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "6750",
+        "firstName": "Luke",
+        "familyName": "Martin",
+        "jerseyToday": "7",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "1"
+          }
+        ]
+      }
+    },
+    "goalStatus": "EQ",
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 101,
+    "eventUuid": "abd1b120-1dc6-5e58-902d-80039aa2ee8f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "04:22",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:47:23.06",
+    "updatedTime": "2026-09-26T17:47:32.232818",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 126,
+    "locationY": -101,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 100,
+    "eventUuid": "ec4fae1f-9fc9-5384-b175-fa49242695a6",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "03:37",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:46:38.66",
+    "updatedTime": "2026-09-26T17:46:49.957938",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5632",
+      "firstName": "Kalle",
+      "familyName": "Kossila",
+      "jerseyToday": "11"
+    },
+    "locationX": 95,
+    "locationY": -130,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 99,
+    "eventUuid": "2de3f12f-96c9-5d0a-9343-53c198dce0df",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 3,
+    "time": "02:27",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:44:55.24",
+    "updatedTime": "2026-09-26T17:45:05.503528",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 162,
+    "locationY": 0,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 98,
+    "eventUuid": "9f15991d-e3df-558c-b4e8-0e924b3972b6",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "19:10",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:22:27.4",
+    "updatedTime": "2026-09-26T17:22:51.074337",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3262",
+      "firstName": "Filip",
+      "familyName": "Berglund",
+      "jerseyToday": "6"
+    },
+    "locationX": 162,
+    "locationY": 111,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 97,
+    "eventUuid": "bd7cb3e8-c17c-5929-bcbe-625b3799347f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "17:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:20:53.92",
+    "updatedTime": "2026-09-26T17:21:26.262091",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3224",
+      "firstName": "Glenn",
+      "familyName": "Gustafsson",
+      "jerseyToday": "37"
+    },
+    "locationX": 53,
+    "locationY": 114,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 96,
+    "eventUuid": "b2f087c3-5664-56a1-a8bd-875eecf09a35",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "16:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:18:52.92",
+    "updatedTime": "2026-09-26T17:19:09.525135",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4828",
+      "firstName": "David",
+      "familyName": "Quenneville",
+      "jerseyToday": "55"
+    },
+    "locationX": 147,
+    "locationY": 106,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 94,
+    "eventUuid": "2e8b13da-f527-5339-b8c7-0949d2b2d5d3",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "15:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:18:07.3",
+    "updatedTime": "2026-09-26T17:18:25.396648",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 101,
+    "locationY": -98,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 93,
+    "eventUuid": "005e3236-9dd5-5bc4-8b36-1a5a9e4ea83f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "14:38",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:17:11.46",
+    "updatedTime": "2026-09-26T17:17:21.916915",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5617",
+      "firstName": "Zeb",
+      "familyName": "Forsfjäll",
+      "jerseyToday": "33"
+    },
+    "locationX": 36,
+    "locationY": 22,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 92,
+    "eventUuid": "576d3422-b48a-50c3-b18a-0357ed654ae0",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "14:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:17:10.16",
+    "updatedTime": "2026-09-26T17:17:21.916915",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 141,
+    "locationY": -78,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 91,
+    "eventUuid": "d275e791-a03e-5184-9097-b87c20c957e0",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "13:19",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:13:45.7",
+    "updatedTime": "2026-09-26T17:15:33.705258",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 16,
+    "locationY": -37,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 90,
+    "eventUuid": "bf9103f6-f2ec-54f1-8992-9a4d702d72af",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "13:34",
+    "gameState": "GameEnded",
+    "revision": 4,
+    "type": "goal",
+    "realWorldTime": "2026-09-26T19:14:05.909242",
+    "updatedTime": "2026-09-26T18:11:30.517669",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 1
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4705",
+      "firstName": "Max",
+      "familyName": "Veronneau",
+      "jerseyToday": "51",
+      "statistics": [
+        {
+          "key": "G",
+          "value": "1"
+        },
+        {
+          "key": "A",
+          "value": "1"
+        }
+      ]
+    },
+    "locationX": 92,
+    "locationY": 10,
+    "homeGoals": 1,
+    "awayGoals": 0,
+    "goalSection": 9,
+    "isPenaltyShot": false,
+    "isEmptyNetGoal": false,
+    "pop": [
+      {
+        "playerId": "5632",
+        "firstName": "Kalle",
+        "familyName": "Kossila",
+        "jerseyToday": "11"
+      },
+      {
+        "playerId": "5727",
+        "firstName": "Josh",
+        "familyName": "Dickinson",
+        "jerseyToday": "19"
+      },
+      {
+        "playerId": "4612",
+        "firstName": "Filip",
+        "familyName": "Larsson",
+        "jerseyToday": "39"
+      },
+      {
+        "playerId": "4705",
+        "firstName": "Max",
+        "familyName": "Veronneau",
+        "jerseyToday": "51"
+      },
+      {
+        "playerId": "4828",
+        "firstName": "David",
+        "familyName": "Quenneville",
+        "jerseyToday": "55"
+      },
+      {
+        "playerId": "3020",
+        "firstName": "Patrik",
+        "familyName": "Karlkvist",
+        "jerseyToday": "89"
+      }
+    ],
+    "nep": [
+      {
+        "playerId": "3648",
+        "firstName": "Viktor",
+        "familyName": "Grahn",
+        "jerseyToday": "3"
+      },
+      {
+        "playerId": "4542",
+        "firstName": "Victor",
+        "familyName": "Stjernborg",
+        "jerseyToday": "9"
+      },
+      {
+        "playerId": "1674",
+        "firstName": "Pär",
+        "familyName": "Lindholm",
+        "jerseyToday": "17"
+      },
+      {
+        "playerId": "4835",
+        "firstName": "Strauss",
+        "familyName": "Mann",
+        "jerseyToday": "38"
+      },
+      {
+        "playerId": "2217",
+        "firstName": "Arvid",
+        "familyName": "Lundberg",
+        "jerseyToday": "52"
+      }
+    ],
+    "assists": {
+      "first": {
+        "playerId": "5632",
+        "firstName": "Kalle",
+        "familyName": "Kossila",
+        "jerseyToday": "11",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "0"
+          },
+          {
+            "key": "A",
+            "value": "7"
+          }
+        ]
+      },
+      "second": {
+        "playerId": "3020",
+        "firstName": "Patrik",
+        "familyName": "Karlkvist",
+        "jerseyToday": "89",
+        "statistics": [
+          {
+            "key": "G",
+            "value": "2"
+          },
+          {
+            "key": "A",
+            "value": "3"
+          }
+        ]
+      }
+    },
+    "goalStatus": "PP1",
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 87,
+    "eventUuid": "2aaec8f5-28ac-5b4a-9bd4-88996176d645",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "12:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:11:04.54",
+    "updatedTime": "2026-09-26T17:12:16.397865",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 9,
+    "locationY": -24,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 86,
+    "eventUuid": "e4dcc49a-6fcc-5a34-bed3-383f9b5c71ee",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "12:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:10:48.54",
+    "updatedTime": "2026-09-26T17:10:59.406431",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4542",
+      "firstName": "Victor",
+      "familyName": "Stjernborg",
+      "jerseyToday": "9"
+    },
+    "locationX": 63,
+    "locationY": -84,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 85,
+    "eventUuid": "224d9e0e-cebc-5e0f-a136-537aca87abbc",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "11:44",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:10:16.86",
+    "updatedTime": "2026-09-26T17:10:28.11143",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4485",
+      "firstName": "Robin",
+      "familyName": "Salo",
+      "jerseyToday": "42"
+    },
+    "locationX": 116,
+    "locationY": 70,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 84,
+    "eventUuid": "7fd2ab2d-a9a6-5590-bd92-ff2a1bee78b1",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "11:41",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-09-26T19:09:26.094659",
+    "updatedTime": "2026-09-26T17:14:29.436003",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "TRIP",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 82,
+    "eventUuid": "f3035853-4c45-5b41-8ea5-a9f9c853af8c",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "10:40",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:08:20.56",
+    "updatedTime": "2026-09-26T17:08:41.237576",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 166,
+    "locationY": -51,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 81,
+    "eventUuid": "f297e85e-a2bc-53b1-8195-8caf2268219a",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "08:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:03:27.9",
+    "updatedTime": "2026-09-26T17:08:09.239261",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3020",
+      "firstName": "Patrik",
+      "familyName": "Karlkvist",
+      "jerseyToday": "89"
+    },
+    "locationX": 12,
+    "locationY": -22,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 80,
+    "eventUuid": "a0122ef5-ed88-5e69-a168-eaa2b2cd8681",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "10:35",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:07:22.86",
+    "updatedTime": "2026-09-26T17:07:37.697574",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 89,
+    "locationY": -140,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 79,
+    "eventUuid": "41e7e97c-13a6-5adc-b6f3-cc1e8f57a493",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "10:19",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:07:06.66",
+    "updatedTime": "2026-09-26T17:07:27.055778",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 171,
+    "locationY": 142,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 78,
+    "eventUuid": "24108ea8-80d7-5665-bf5e-1fc95454eaaf",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "10:07",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:05:10.5",
+    "updatedTime": "2026-09-26T17:06:54.147044",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4548",
+      "firstName": "Mikkel",
+      "familyName": "Aagaard",
+      "jerseyToday": "29"
+    },
+    "locationX": 104,
+    "locationY": 41,
+    "goalSection": 5,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 75,
+    "eventUuid": "92e38b80-9ae9-5a03-bcee-af3d3990af80",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "08:42",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:03:45.62",
+    "updatedTime": "2026-09-26T17:04:05.310101",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "6750",
+      "firstName": "Luke",
+      "familyName": "Martin",
+      "jerseyToday": "7"
+    },
+    "locationX": 169,
+    "locationY": -119,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 74,
+    "eventUuid": "0442620e-dd40-5268-871a-3a9d0e1996dd",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "00:42",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:02:46.518",
+    "updatedTime": "2026-09-26T17:04:05.310101",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3296",
+      "firstName": "Rickard",
+      "familyName": "Hugg",
+      "jerseyToday": "96"
+    },
+    "locationX": 109,
+    "locationY": 117,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 72,
+    "eventUuid": "5305a68b-b43f-5b31-891d-fbf0cd753496",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "07:15",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:00:45.56",
+    "updatedTime": "2026-09-26T17:01:03.63771",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 81,
+    "locationY": -71,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 71,
+    "eventUuid": "498677b6-f160-5f00-9b2f-cf3324d4cc86",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "06:54",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:00:24.4",
+    "updatedTime": "2026-09-26T17:00:42.914933",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 422,
+    "locationY": -144,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 70,
+    "eventUuid": "b5bfe9b8-6a76-52bb-983b-f4b596aa3d73",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "06:42",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T19:00:12.54",
+    "updatedTime": "2026-09-26T17:00:32.000416",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4548",
+      "firstName": "Mikkel",
+      "familyName": "Aagaard",
+      "jerseyToday": "29"
+    },
+    "locationX": 60,
+    "locationY": 38,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 69,
+    "eventUuid": "1d17d33b-269c-54f8-87b9-2deda808bdeb",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "06:12",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:59:42.52",
+    "updatedTime": "2026-09-26T17:00:00.766231",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 109,
+    "locationY": 88,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 68,
+    "eventUuid": "78f91fe8-fc37-57a7-9b84-e1c51ab53329",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "04:17",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:56:18.015",
+    "updatedTime": "2026-09-26T17:00:00.766231",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 124,
+    "locationY": -68,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 66,
+    "eventUuid": "21c52084-75ce-5f2a-b6c2-6a9c18232f30",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "05:42",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:59:12.6",
+    "updatedTime": "2026-09-26T16:59:28.212824",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "7075",
+      "firstName": "Wojciech",
+      "familyName": "Stachowiak",
+      "jerseyToday": "91"
+    },
+    "locationX": 92,
+    "locationY": -17,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 65,
+    "eventUuid": "d07508ec-8f4d-544f-8342-51cccc860e74",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "05:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:58:58.68",
+    "updatedTime": "2026-09-26T16:59:17.490511",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 160,
+    "locationY": 76,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 64,
+    "eventUuid": "35473122-9c80-529a-8dcc-5f557ca0902f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "05:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:58:03.04",
+    "updatedTime": "2026-09-26T16:58:22.784689",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 134,
+    "locationY": -71,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 63,
+    "eventUuid": "225760fe-a4d1-5395-bcce-d0d7358e5e6a",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "04:50",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:57:35.8",
+    "updatedTime": "2026-09-26T16:57:51.146347",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 148,
+    "locationY": 106,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 62,
+    "eventUuid": "b1b3f83e-c909-5e32-ad94-5577d284d67f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "04:28",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:57:14.3",
+    "updatedTime": "2026-09-26T16:57:30.97965",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4485",
+      "firstName": "Robin",
+      "familyName": "Salo",
+      "jerseyToday": "42"
+    },
+    "locationX": 175,
+    "locationY": -27,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 61,
+    "eventUuid": "0ec04408-4000-528d-b455-2b1c50d4a282",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "04:22",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:56:24",
+    "updatedTime": "2026-09-26T16:56:43.263345",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5632",
+      "firstName": "Kalle",
+      "familyName": "Kossila",
+      "jerseyToday": "11"
+    },
+    "locationX": 27,
+    "locationY": 9,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 60,
+    "eventUuid": "48ca30f8-a8ee-5243-b1d9-dc0a438e8871",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "03:24",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:55:26.02",
+    "updatedTime": "2026-09-26T16:56:11.212636",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 137,
+    "locationY": 48,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 59,
+    "eventUuid": "15065494-8925-51b5-b0fd-4a3d8f7b870f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "03:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:55:33.52",
+    "updatedTime": "2026-09-26T16:55:51.164969",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "6750",
+      "firstName": "Luke",
+      "familyName": "Martin",
+      "jerseyToday": "7"
+    },
+    "locationX": 465,
+    "locationY": 94,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 57,
+    "eventUuid": "94083cf0-795c-52ed-9127-600aa86c1426",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "03:16",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:55:17.8",
+    "updatedTime": "2026-09-26T16:55:31.248436",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2102",
+      "firstName": "Jonathan",
+      "familyName": "Johnson",
+      "jerseyToday": "22"
+    },
+    "locationX": 70,
+    "locationY": 64,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 56,
+    "eventUuid": "085dc700-0c0f-532e-94fc-b119694ee248",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "03:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:55:01.46",
+    "updatedTime": "2026-09-26T16:55:21.06667",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2102",
+      "firstName": "Jonathan",
+      "familyName": "Johnson",
+      "jerseyToday": "22"
+    },
+    "locationX": 85,
+    "locationY": 49,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 55,
+    "eventUuid": "703401b6-09fa-5bad-8a93-e8e6760b0ec7",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "02:59",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:55:00.22",
+    "updatedTime": "2026-09-26T16:55:10.065111",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2102",
+      "firstName": "Jonathan",
+      "familyName": "Johnson",
+      "jerseyToday": "22"
+    },
+    "locationX": 86,
+    "locationY": 61,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 54,
+    "eventUuid": "68b96b93-13bc-553d-8940-7fb9ecec9f08",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "02:50",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:54:21.96",
+    "updatedTime": "2026-09-26T16:54:39.471645",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 68,
+    "locationY": -45,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 53,
+    "eventUuid": "5f41340c-44c6-5b61-8e6f-9232e6ded781",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "00:57",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:50:23.048",
+    "updatedTime": "2026-09-26T16:54:19.362475",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "7075",
+      "firstName": "Wojciech",
+      "familyName": "Stachowiak",
+      "jerseyToday": "91"
+    },
+    "locationX": 383,
+    "locationY": -106,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 52,
+    "eventUuid": "dba2688b-bfa6-59de-8bd7-14b9418398db",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "02:14",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-09-26T18:53:03.499236",
+    "updatedTime": "2026-09-26T16:56:17.440894",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5632",
+      "firstName": "Kalle",
+      "familyName": "Kossila",
+      "jerseyToday": "11"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOOK",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 51,
+    "eventUuid": "9852e523-b2cd-5d43-bf4b-cdaa84ae6d06",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "02:11",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:52:57.68",
+    "updatedTime": "2026-09-26T16:53:14.855624",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1552",
+      "firstName": "Oscar",
+      "familyName": "Lindberg",
+      "jerseyToday": "24"
+    },
+    "locationX": 67,
+    "locationY": -63,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 49,
+    "eventUuid": "e59b7f26-addf-5cbc-9829-c603abe6df50",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 2,
+    "time": "00:24",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:49:16.04",
+    "updatedTime": "2026-09-26T16:49:34.748315",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3020",
+      "firstName": "Patrik",
+      "familyName": "Karlkvist",
+      "jerseyToday": "89"
+    },
+    "locationX": 134,
+    "locationY": -1,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 48,
+    "eventUuid": "47ab2717-d873-5792-9e25-24ff458aa9da",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "19:41",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:28:52.76",
+    "updatedTime": "2026-09-26T16:29:10.503145",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 103,
+    "locationY": 57,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 47,
+    "eventUuid": "467507fb-19a7-51a3-a2ef-8a8865cde61c",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "19:33",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:28:45.74",
+    "updatedTime": "2026-09-26T16:29:00.097956",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 182,
+    "locationY": 16,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 46,
+    "eventUuid": "466b2b00-7f36-5f15-8f4d-3fb48772650d",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "18:34",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:27:45.78",
+    "updatedTime": "2026-09-26T16:28:39.502353",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4542",
+      "firstName": "Victor",
+      "familyName": "Stjernborg",
+      "jerseyToday": "9"
+    },
+    "locationX": 47,
+    "locationY": -61,
+    "goalSection": 4,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 45,
+    "eventUuid": "150a8f2c-a4b5-5ba0-a316-93fd018ffae2",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "18:55",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:28:07.02",
+    "updatedTime": "2026-09-26T16:28:18.971715",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6202",
+      "firstName": "Oskar",
+      "familyName": "Vuollet",
+      "jerseyToday": "72"
+    },
+    "locationX": 139,
+    "locationY": -21,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 43,
+    "eventUuid": "68642e9c-7630-5fdc-bd96-b477449a4d9b",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "18:32",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:27:44.58",
+    "updatedTime": "2026-09-26T16:27:57.818419",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4542",
+      "firstName": "Victor",
+      "familyName": "Stjernborg",
+      "jerseyToday": "9"
+    },
+    "locationX": 118,
+    "locationY": -34,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 42,
+    "eventUuid": "d20ceba7-e5f5-5776-9fe5-32874f41d2ca",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "17:20",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:26:31.92",
+    "updatedTime": "2026-09-26T16:26:42.065464",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4774",
+      "firstName": "Milton",
+      "familyName": "Oscarson",
+      "jerseyToday": "29"
+    },
+    "locationX": 70,
+    "locationY": -55,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 41,
+    "eventUuid": "6d4612f4-7490-5d6e-97fb-a49f08b5738b",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "16:31",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:25:43.66",
+    "updatedTime": "2026-09-26T16:25:59.312105",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3648",
+      "firstName": "Viktor",
+      "familyName": "Grahn",
+      "jerseyToday": "3"
+    },
+    "locationX": 157,
+    "locationY": -144,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 40,
+    "eventUuid": "700eaa7c-63fc-523f-934b-0c34fc9c6b5e",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "16:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:24:21.64",
+    "updatedTime": "2026-09-26T16:24:36.75439",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5873",
+      "firstName": "Frans",
+      "familyName": "Haara",
+      "jerseyToday": "7"
+    },
+    "locationX": 84,
+    "locationY": 108,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 39,
+    "eventUuid": "8b5434a6-3f86-5ea1-96d8-3bc468386555",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "16:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:24:04.7",
+    "updatedTime": "2026-09-26T16:24:25.611803",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 166,
+    "locationY": 15,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 38,
+    "eventUuid": "74a6f598-3b33-5e67-8991-5fcf61049407",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "15:49",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:23:53.7",
+    "updatedTime": "2026-09-26T16:24:03.348135",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 185,
+    "locationY": -14,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 36,
+    "eventUuid": "d41a59e5-4b08-5f83-97df-3a14fb3b566f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "15:04",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:21:24.36",
+    "updatedTime": "2026-09-26T16:21:46.826041",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2102",
+      "firstName": "Jonathan",
+      "familyName": "Johnson",
+      "jerseyToday": "22"
+    },
+    "locationX": 62,
+    "locationY": -44,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 35,
+    "eventUuid": "bf456f4e-7c41-5b6f-9208-40c4b8b6eadf",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "12:10",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:18:29.64",
+    "updatedTime": "2026-09-26T16:18:49.647065",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "7075",
+      "firstName": "Wojciech",
+      "familyName": "Stachowiak",
+      "jerseyToday": "91"
+    },
+    "locationX": 157,
+    "locationY": -50,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 34,
+    "eventUuid": "6b95bd1a-ba43-56f4-aefe-e47b082862c6",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "11:53",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:18:13.22",
+    "updatedTime": "2026-09-26T16:18:28.180403",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4548",
+      "firstName": "Mikkel",
+      "familyName": "Aagaard",
+      "jerseyToday": "29"
+    },
+    "locationX": 145,
+    "locationY": -69,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 33,
+    "eventUuid": "cf7b922a-8785-5444-8828-1c532c431d0d",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "10:47",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:17:07.22",
+    "updatedTime": "2026-09-26T16:17:21.397582",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4828",
+      "firstName": "David",
+      "familyName": "Quenneville",
+      "jerseyToday": "55"
+    },
+    "locationX": 180,
+    "locationY": -138,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 32,
+    "eventUuid": "261719e5-5228-58b4-a08b-36fe75aa4e3f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "10:10",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:15:57.72",
+    "updatedTime": "2026-09-26T16:17:21.397582",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4485",
+      "firstName": "Robin",
+      "familyName": "Salo",
+      "jerseyToday": "42"
+    },
+    "locationX": 105,
+    "locationY": -121,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 31,
+    "eventUuid": "873b1ea5-a1a9-5661-8775-0adbe6a6ac67",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "10:29",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:16:16.44",
+    "updatedTime": "2026-09-26T16:16:29.694498",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "2845",
+      "firstName": "Christopher",
+      "familyName": "Mastomäki",
+      "jerseyToday": "33"
+    },
+    "locationX": 54,
+    "locationY": 106,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 30,
+    "eventUuid": "f35aa379-aca6-5f59-8857-10b07885cabd",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "10:17",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:16:04.66",
+    "updatedTime": "2026-09-26T16:16:18.097641",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4485",
+      "firstName": "Robin",
+      "familyName": "Salo",
+      "jerseyToday": "42"
+    },
+    "locationX": 176,
+    "locationY": -97,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 28,
+    "eventUuid": "a4b26f0d-b92f-5b53-98eb-2725fa3cc9db",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "09:57",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:15:44.74",
+    "updatedTime": "2026-09-26T16:15:55.951864",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2388",
+      "firstName": "Andreas",
+      "familyName": "Johnson",
+      "jerseyToday": "14"
+    },
+    "locationX": 257,
+    "locationY": -28,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 27,
+    "eventUuid": "d3a5dc58-4f28-5560-aaea-a43673aeb2ef",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "08:40",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:14:27.28",
+    "updatedTime": "2026-09-26T16:15:13.593917",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 14,
+    "locationY": 4,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 25,
+    "eventUuid": "1a91a4e0-f477-52bc-81ed-e43f803ee462",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "08:31",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:14:18.84",
+    "updatedTime": "2026-09-26T16:14:31.255234",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3020",
+      "firstName": "Patrik",
+      "familyName": "Karlkvist",
+      "jerseyToday": "89"
+    },
+    "locationX": 94,
+    "locationY": -82,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 24,
+    "eventUuid": "a8c2f138-172a-5f29-aafc-ebf3c8c1278f",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "08:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:12:32.52",
+    "updatedTime": "2026-09-26T16:13:38.278453",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "6121",
+      "firstName": "Sampo",
+      "familyName": "Ranta",
+      "jerseyToday": "10"
+    },
+    "locationX": 16,
+    "locationY": -27,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 23,
+    "eventUuid": "a7484b8e-1118-571b-a6a2-ade804bc46ac",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "08:02",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "penalty",
+    "realWorldTime": "2026-09-26T18:12:56.759794",
+    "updatedTime": "2026-09-26T16:15:51.698921",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "variant": {
+      "shortName": "Minor",
+      "minorTime": "2",
+      "doubleMinorTime": "0",
+      "benchTime": "0",
+      "majorTime": "0",
+      "misconductTime": "0",
+      "gMTime": "0",
+      "mPTime": "0",
+      "description": "2 min"
+    },
+    "offence": "HOOK",
+    "didRenderInPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 22,
+    "eventUuid": "6a86aeee-9d4b-55e1-8f1c-b85a0aaa9699",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "07:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:12:23.9",
+    "updatedTime": "2026-09-26T16:12:40.127186",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2337",
+      "firstName": "Jonathan",
+      "familyName": "Pudas",
+      "jerseyToday": "64"
+    },
+    "locationX": 170,
+    "locationY": 80,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 21,
+    "eventUuid": "18cb28d6-23db-52a2-8697-43df6122482b",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "07:45",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:12:17.38",
+    "updatedTime": "2026-09-26T16:12:29.352524",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6492",
+      "firstName": "Rasmus",
+      "familyName": "Bergqvist",
+      "jerseyToday": "4"
+    },
+    "locationX": 175,
+    "locationY": -21,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 20,
+    "eventUuid": "0468f782-2b43-5d5e-b8c8-bded3f650eb9",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "07:38",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:11:32.62",
+    "updatedTime": "2026-09-26T16:11:45.43867",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 147,
+    "locationY": 126,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 19,
+    "eventUuid": "68230832-2080-59f9-8a25-b63f984acb95",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "06:44",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:10:38.8",
+    "updatedTime": "2026-09-26T16:11:45.43867",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "6202",
+      "firstName": "Oskar",
+      "familyName": "Vuollet",
+      "jerseyToday": "72"
+    },
+    "locationX": 82,
+    "locationY": -14,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 18,
+    "eventUuid": "f7455108-3da6-551b-b6eb-0fceef8f2788",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "07:25",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:11:19.42",
+    "updatedTime": "2026-09-26T16:11:35.170593",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4535",
+      "firstName": "Pontus",
+      "familyName": "Johansson",
+      "jerseyToday": "25"
+    },
+    "locationX": 180,
+    "locationY": -140,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 16,
+    "eventUuid": "e5d97e81-dfff-50eb-9d1b-b2f5651fbf71",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "06:11",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:10:05.86",
+    "updatedTime": "2026-09-26T16:10:20.225241",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4548",
+      "firstName": "Mikkel",
+      "familyName": "Aagaard",
+      "jerseyToday": "29"
+    },
+    "locationX": 165,
+    "locationY": 139,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 15,
+    "eventUuid": "d131ef4e-1a31-5da3-a3e4-f699d8f5e426",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "05:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:08:58.46",
+    "updatedTime": "2026-09-26T16:09:17.129677",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 154,
+    "locationY": -8,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 14,
+    "eventUuid": "07227b22-a7f4-5ffb-8b3c-76bc3fa79511",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "05:07",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:08:30.06",
+    "updatedTime": "2026-09-26T16:08:46.800926",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "3648",
+      "firstName": "Viktor",
+      "familyName": "Grahn",
+      "jerseyToday": "3"
+    },
+    "locationX": 371,
+    "locationY": -15,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 13,
+    "eventUuid": "7c5fe3d5-d423-598a-bb7c-dd750ad10e86",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "04:52",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:07:34.62",
+    "updatedTime": "2026-09-26T16:07:52.156669",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "5617",
+      "firstName": "Zeb",
+      "familyName": "Forsfjäll",
+      "jerseyToday": "33"
+    },
+    "locationX": 128,
+    "locationY": -8,
+    "goalSection": 8,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 12,
+    "eventUuid": "54a68317-357a-5ccc-87c1-b797f1c2d2b9",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "03:09",
+    "gameState": "GameEnded",
+    "revision": 2,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:05:51.54",
+    "updatedTime": "2026-09-26T16:06:36.470456",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "3020",
+      "firstName": "Patrik",
+      "familyName": "Karlkvist",
+      "jerseyToday": "89"
+    },
+    "locationX": 135,
+    "locationY": -127,
+    "goalSection": -3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 10,
+    "eventUuid": "bd39ee1c-6f33-54e5-b87c-5341d681d71a",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "03:00",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:05:05.42",
+    "updatedTime": "2026-09-26T16:05:25.047072",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4774",
+      "firstName": "Milton",
+      "familyName": "Oscarson",
+      "jerseyToday": "29"
+    },
+    "locationX": 135,
+    "locationY": -48,
+    "goalSection": 2,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 9,
+    "eventUuid": "2acfed6e-f358-555d-b895-c4ae4868679d",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "02:29",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:04:33.78",
+    "updatedTime": "2026-09-26T16:04:43.967284",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "7041",
+      "firstName": "Hudson",
+      "familyName": "Fasching",
+      "jerseyToday": "20"
+    },
+    "locationX": 8,
+    "locationY": 10,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 8,
+    "eventUuid": "b6028704-2163-5b26-b68a-6804f457b38e",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "02:27",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:04:32.18",
+    "updatedTime": "2026-09-26T16:04:43.967284",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "1674",
+      "firstName": "Pär",
+      "familyName": "Lindholm",
+      "jerseyToday": "17"
+    },
+    "locationX": 27,
+    "locationY": -52,
+    "goalSection": 3,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 6,
+    "eventUuid": "588b51e7-44d0-59f6-a8f6-ed30e9bfd4c0",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "01:56",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:04:01.44",
+    "updatedTime": "2026-09-26T16:04:23.319387",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "2217",
+      "firstName": "Arvid",
+      "familyName": "Lundberg",
+      "jerseyToday": "52"
+    },
+    "locationX": 151,
+    "locationY": -24,
+    "goalSection": 1,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 5,
+    "eventUuid": "fbadff6c-20bc-51bd-b5de-93561ae13f11",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "01:39",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:03:44.24",
+    "updatedTime": "2026-09-26T16:04:01.229178",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "6750",
+      "firstName": "Luke",
+      "familyName": "Martin",
+      "jerseyToday": "7"
+    },
+    "locationX": 101,
+    "locationY": 145,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 4,
+    "eventUuid": "40d961ad-25c2-522a-9f7c-725cb979adac",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "01:36",
+    "gameState": "GameEnded",
+    "revision": 1,
+    "type": "shot",
+    "realWorldTime": "2026-09-26T18:03:41.46",
+    "updatedTime": "2026-09-26T16:04:01.229178",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "5727",
+      "firstName": "Josh",
+      "familyName": "Dickinson",
+      "jerseyToday": "19"
+    },
+    "locationX": 43,
+    "locationY": -48,
+    "goalSection": 0,
+    "isPenaltyShot": false,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 2,
+    "eventUuid": "fbabfb11-584f-55f3-972b-dc693941f84e",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-09-26T17:58:05.12899",
+    "updatedTime": "2026-09-26T18:07:43.11163",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "SAIK",
+      "place": "away",
+      "teamCode": "SKE",
+      "teamName": "Skellefteå AIK"
+    },
+    "player": {
+      "playerId": "4835",
+      "firstName": "Strauss",
+      "familyName": "Mann",
+      "jerseyToday": "38"
+    },
+    "isEntering": true,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "eventId": 1,
+    "eventUuid": "5e06aab0-4d24-589c-8b40-a500df56007b",
+    "round": 4,
+    "gameType": "Elitserien",
+    "arena": "Behrn Arena",
+    "attendance": 5388,
+    "startDateAndTime": "2026-09-26T18:00:00",
+    "period": 1,
+    "time": "00:00",
+    "gameState": "GameEnded",
+    "revision": 3,
+    "type": "goalkeeper",
+    "realWorldTime": "2026-09-26T17:58:02.401805",
+    "updatedTime": "2026-09-26T18:15:33.945262",
+    "homeTeam": {
+      "teamId": "OHK",
+      "teamName": "Örebro Hockey",
+      "teamCode": "ÖRE",
+      "score": 0
+    },
+    "awayTeam": {
+      "teamId": "SAIK",
+      "teamName": "Skellefteå AIK",
+      "teamCode": "SKE",
+      "score": 0
+    },
+    "eventTeam": {
+      "teamId": "OHK",
+      "place": "home",
+      "teamCode": "ÖRE",
+      "teamName": "Örebro Hockey"
+    },
+    "player": {
+      "playerId": "4612",
+      "firstName": "Filip",
+      "familyName": "Larsson",
+      "jerseyToday": "39"
+    },
+    "isEntering": true,
+    "gameUuid": "u0ribje54r"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "period": 1,
+    "started": true,
+    "startedAt": "2026-09-26T18:00:52.047Z",
+    "finished": true,
+    "finishedAt": "2026-09-26T18:30:49.019Z",
+    "realWorldTime": "2026-09-26T18:30:49.194768",
+    "gameUuid": "u0ribje54r",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "period": 2,
+    "started": true,
+    "startedAt": "2026-09-26T18:48:46.069Z",
+    "finished": true,
+    "finishedAt": "2026-09-26T19:23:54.036Z",
+    "realWorldTime": "2026-09-26T19:23:54.364141",
+    "gameUuid": "u0ribje54r",
+    "type": "period"
+  },
+  {
+    "gameSourceId": "20260926-OHK-SAIK",
+    "gameId": 23024,
+    "period": 3,
+    "started": true,
+    "startedAt": "2026-09-26T19:41:56.023Z",
+    "finished": true,
+    "finishedAt": "2026-09-26T20:11:27.038Z",
+    "realWorldTime": "2026-09-26T20:11:27.384591",
+    "gameUuid": "u0ribje54r",
+    "type": "period"
+  }
+]

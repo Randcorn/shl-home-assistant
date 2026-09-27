@@ -1,5 +1,26 @@
 # Development plan
 
+## Status after API capture work (2026-09-26)
+
+- Prototype inspection is complete.
+- Schedule filter discovery and team game selection are implemented against
+  real filter and schedule captures. The implementation handles both `SAIK`
+  (schedule) and `SKE` (play-by-play) for Skellefteå.
+- Coordinator polling from game-overview and play-by-play, stored event revision cursors, deterministic event
+  ordering, duplicate suppression, correction-aware `shl_event`, and
+  `shl_goal` emission are implemented. Current score, period, and clock can be
+  sourced from the newest play-by-play item when `game-info` lacks them.
+- Game, score, and last-goal sensors are implemented. Lifecycle events are
+  inferred from game-overview state and period transitions when those fields
+  are present.
+- Parser and event tests cover real captured filter, schedule, and
+  play-by-play responses. A live-game test is still outstanding.
+
+Remaining work: run this in Home Assistant during a live SHL game, verify
+actual live state strings and event timing, then extend lifecycle/edge-case
+tests for overtime, shootout, postponed/cancelled, failures, and restart
+recovery.
+
 1. **Inspect prototype** — run tests, understand current architecture, avoid
    unnecessary rewrites.
 2. **Game discovery** — use schedule + season/series/game-type endpoints to
