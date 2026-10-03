@@ -8,11 +8,14 @@ CONF_TEAM_CODE = "team_code"
 CONF_TEAM_NAME = "team_name"
 CONF_TEAM = "team"
 CONF_LIVE_POLL_INTERVAL = "live_poll_interval"
+# Legacy option stored in seconds; read only for existing config entries.
 CONF_IDLE_POLL_INTERVAL = "idle_poll_interval"
+CONF_IDLE_POLL_INTERVAL_MINUTES = "idle_poll_interval_minutes"
 CONF_DISCOVERY_INTERVAL = "discovery_interval"
 CONF_STANDINGS_INTERVAL = "standings_interval"
 DEFAULT_LIVE_POLL_INTERVAL = 15
 DEFAULT_IDLE_POLL_INTERVAL = 300
+DEFAULT_IDLE_POLL_INTERVAL_MINUTES = 5
 DEFAULT_DISCOVERY_INTERVAL = 5
 DEFAULT_STANDINGS_INTERVAL = 15
 SEASON_SERIES_FILTER_PATH = "/api/sports-v2/season-series-game-types-filter"

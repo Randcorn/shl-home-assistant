@@ -16,6 +16,7 @@ from custom_components.shl.discovery import (
     schedule_identifiers,
 )
 from custom_components.shl.events import process_play_by_play
+from custom_components.shl.coordinator import next_idle_poll_interval
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -247,3 +248,24 @@ def test_multiple_revisions_in_one_poll_keep_only_latest_revision():
     assert changed[0]["revision"] == 2
     assert changed[0]["homeGoals"] == 2
     assert len(goals) == 1
+
+
+def test_idle_poll_is_scheduled_for_known_game_start():
+    now = datetime(2026, 10, 3, 12, 0, tzinfo=timezone.utc)
+    assert next_idle_poll_interval(
+        now, now + timedelta(minutes=2), timedelta(minutes=15)
+    ) == timedelta(minutes=2)
+
+
+def test_known_start_near_now_uses_fifteen_second_minimum():
+    now = datetime(2026, 10, 3, 12, 0, tzinfo=timezone.utc)
+    assert next_idle_poll_interval(
+        now, now + timedelta(seconds=5), timedelta(minutes=15)
+    ) == timedelta(seconds=15)
+
+
+def test_start_outside_idle_interval_keeps_regular_interval():
+    now = datetime(2026, 10, 3, 12, 0, tzinfo=timezone.utc)
+    assert next_idle_poll_interval(
+        now, now + timedelta(minutes=20), timedelta(minutes=15)
+    ) == timedelta(minutes=15)

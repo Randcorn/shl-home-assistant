@@ -21,7 +21,7 @@
         "description": "Choose how often SHL checks for updates. Shorter intervals check more often.",
         "data": {
           "live_poll_interval": "During a live game",
-          "idle_poll_interval": "Between games",
+          "idle_poll_interval_minutes": "Between games (minutes)",
           "discovery_interval": "Game schedule check",
           "standings_interval": "League table update"
         }

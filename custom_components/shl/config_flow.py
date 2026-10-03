@@ -25,10 +25,12 @@ from .const import (
     CONF_TEAM_NAME,
     CONF_DISCOVERY_INTERVAL,
     CONF_IDLE_POLL_INTERVAL,
+    CONF_IDLE_POLL_INTERVAL_MINUTES,
     CONF_LIVE_POLL_INTERVAL,
     CONF_STANDINGS_INTERVAL,
     DEFAULT_DISCOVERY_INTERVAL,
     DEFAULT_IDLE_POLL_INTERVAL,
+    DEFAULT_IDLE_POLL_INTERVAL_MINUTES,
     DEFAULT_LIVE_POLL_INTERVAL,
     DEFAULT_STANDINGS_INTERVAL,
     DEFAULT_TEAM_CODE,
@@ -115,6 +117,23 @@ class ShlOptionsFlow(config_entries.OptionsFlow):
             return self.async_create_entry(title="", data=user_input)
 
         options = self.config_entry.options
+        if CONF_IDLE_POLL_INTERVAL_MINUTES in options:
+            try:
+                idle_interval_default = int(options[CONF_IDLE_POLL_INTERVAL_MINUTES])
+            except (TypeError, ValueError):
+                idle_interval_default = DEFAULT_IDLE_POLL_INTERVAL_MINUTES
+            idle_interval_default = min(360, max(1, idle_interval_default))
+        else:
+            try:
+                legacy_idle_seconds = int(
+                    options.get(CONF_IDLE_POLL_INTERVAL, DEFAULT_IDLE_POLL_INTERVAL)
+                )
+            except (TypeError, ValueError):
+                legacy_idle_seconds = DEFAULT_IDLE_POLL_INTERVAL
+            idle_interval_default = min(
+                360,
+                max(1, round(legacy_idle_seconds / 60)),
+            )
         return self.async_show_form(
             step_id="init",
             data_schema=vol.Schema({
@@ -126,10 +145,10 @@ class ShlOptionsFlow(config_entries.OptionsFlow):
                     mode=NumberSelectorMode.BOX,
                 )),
                 vol.Required(
-                    CONF_IDLE_POLL_INTERVAL,
-                    default=options.get(CONF_IDLE_POLL_INTERVAL, DEFAULT_IDLE_POLL_INTERVAL),
+                    CONF_IDLE_POLL_INTERVAL_MINUTES,
+                    default=idle_interval_default,
                 ): NumberSelector(NumberSelectorConfig(
-                    min=60, max=1800, step=60, unit_of_measurement="s",
+                    min=1, max=360, step=1, unit_of_measurement="min",
                     mode=NumberSelectorMode.BOX,
                 )),
                 vol.Required(

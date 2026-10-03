@@ -17,10 +17,12 @@ from .const import (
     EVENT_PLAY_BY_PLAY,
     CONF_DISCOVERY_INTERVAL,
     CONF_IDLE_POLL_INTERVAL,
+    CONF_IDLE_POLL_INTERVAL_MINUTES,
     CONF_LIVE_POLL_INTERVAL,
     CONF_STANDINGS_INTERVAL,
     DEFAULT_DISCOVERY_INTERVAL,
     DEFAULT_IDLE_POLL_INTERVAL,
+    DEFAULT_IDLE_POLL_INTERVAL_MINUTES,
     DEFAULT_LIVE_POLL_INTERVAL,
     DEFAULT_STANDINGS_INTERVAL,
 )
@@ -35,6 +37,18 @@ from .models import (
 )
 
 PERSISTENCE_VERSION = 1
+
+
+def next_idle_poll_interval(
+    now: datetime, game_start: datetime | None, idle_interval: timedelta
+) -> timedelta:
+    """Wake at a known start time when it falls inside the idle interval."""
+    if game_start is None:
+        return idle_interval
+    until_start = game_start - now
+    if timedelta(0) < until_start <= idle_interval:
+        return max(timedelta(seconds=15), until_start)
+    return idle_interval
 
 
 class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
@@ -52,9 +66,21 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         self.live_poll_interval = timedelta(seconds=self._bounded_option(
             options, CONF_LIVE_POLL_INTERVAL, DEFAULT_LIVE_POLL_INTERVAL, 5, 120
         ))
-        self.idle_poll_interval = timedelta(seconds=self._bounded_option(
-            options, CONF_IDLE_POLL_INTERVAL, DEFAULT_IDLE_POLL_INTERVAL, 60, 1800
-        ))
+        if CONF_IDLE_POLL_INTERVAL_MINUTES in options:
+            idle_minutes = self._bounded_option(
+                options,
+                CONF_IDLE_POLL_INTERVAL_MINUTES,
+                DEFAULT_IDLE_POLL_INTERVAL_MINUTES,
+                1,
+                360,
+            )
+            self.idle_poll_interval = timedelta(minutes=idle_minutes)
+        else:
+            # Keep existing entries' saved seconds-based option working.
+            idle_seconds = self._bounded_option(
+                options, CONF_IDLE_POLL_INTERVAL, DEFAULT_IDLE_POLL_INTERVAL, 60, 21600
+            )
+            self.idle_poll_interval = timedelta(seconds=idle_seconds)
         self.discovery_interval = timedelta(minutes=self._bounded_option(
             options, CONF_DISCOVERY_INTERVAL, DEFAULT_DISCOVERY_INTERVAL, 1, 60
         ))
@@ -274,7 +300,11 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                             "configured_team_code": self.team_code,
                         })
 
-            self.update_interval = self.live_poll_interval if live else self.idle_poll_interval
+            self.update_interval = (
+                self.live_poll_interval
+                if live
+                else next_idle_poll_interval(now, selected.start_time, self.idle_poll_interval)
+            )
             goal_models: list[GoalEvent] = [
                 goal for event in all_events if (goal := parse_goal(event)) is not None
             ]

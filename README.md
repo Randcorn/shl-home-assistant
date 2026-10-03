@@ -9,7 +9,9 @@ team, but the integration accepts any SHL team code.
 - Discovers season, series, and game-type identifiers from the SHL filter API.
 - Finds the configured team's active or next game from the SHL schedule.
 - Polls game-overview, play-by-play, and team statistics during a game, with
-  configurable live and idle polling intervals.
+  configurable live and idle polling intervals. When a known game start is
+  within the idle interval, it schedules a poll for puck drop and switches to
+  the live interval from then on.
 - Exposes game, score, last-goal, points, league-position, and individual
   standings-statistic sensors, plus one combined home-away shots-on-goal
   sensor. The game sensor includes matchup and next-game details in its
