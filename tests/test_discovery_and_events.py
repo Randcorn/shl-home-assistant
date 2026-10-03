@@ -11,6 +11,7 @@ from custom_components.shl.discovery import (
     game_type_identifiers,
     latest_ssgt_identifiers,
     parse_team_standing,
+    parse_team_options,
     parse_schedule,
     schedule_identifiers,
 )
@@ -144,6 +145,17 @@ def test_real_schedule_fixture_matches_ske_and_selects_next_game():
     assert selected.game_uuid == "xheynl9ev5"
     assert selected.home_team["code"] == "SAIK"
     assert selected.state == "pre-game"
+
+
+def test_real_schedule_team_list_produces_named_team_choices():
+    options = parse_team_options(_fixture("game_schedule_2026-2027_saik.json"))
+    assert len(options) == 14
+    assert options == sorted(options, key=lambda team: team["name"].casefold())
+    assert {"code": "SKE", "name": "Skellefteå AIK"} in options
+    assert {"code": "IFB", "name": "Björklöven"} in options
+    assert {"code": "DIF", "name": "Djurgårdens IF"} in options
+    assert {"code": "OHK", "name": "Örebro Hockey"} in options
+    assert all(team["code"] and team["name"] for team in options)
 
 
 def test_real_standings_fixture_finds_skelleftea_through_either_team_code():

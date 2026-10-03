@@ -197,6 +197,45 @@ def parse_schedule(payload: Any) -> list[ScheduleGame]:
     return games
 
 
+def parse_team_options(payload: Any) -> list[dict[str, str]]:
+    """Extract selectable team code/name pairs from schedule data."""
+    if not isinstance(payload, dict):
+        return []
+    raw_teams = payload.get("teamList")
+    teams = [team for team in raw_teams if isinstance(team, dict)] if isinstance(raw_teams, list) else []
+    if not teams:
+        for row in _game_rows(payload):
+            for key in ("homeTeamInfo", "awayTeamInfo", "homeTeam", "awayTeam"):
+                value = row.get(key)
+                if isinstance(value, dict):
+                    teams.append(value)
+
+    options: dict[str, str] = {}
+    for team in teams:
+        names = team.get("teamNames") or team.get("names")
+        names = names if isinstance(names, dict) else {}
+        # teamCode matches schedule rows; codeSite can be a display label such
+        # as "DIF Herr" and should only be used when the stable code is absent.
+        code = str(
+            team.get("teamCode") or team.get("code") or names.get("code")
+            or names.get("codeSite") or names.get("code_site") or ""
+        ).strip().upper()
+        if code == "SAIK":
+            code = "SKE"
+        if not code:
+            continue
+        name = (
+            names.get("long") or names.get("longSite") or names.get("long_site")
+            or team.get("displayName") or names.get("full") or names.get("short")
+        )
+        if name:
+            options.setdefault(code, str(name).strip())
+    return [
+        {"code": code, "name": name}
+        for code, name in sorted(options.items(), key=lambda item: item[1].casefold())
+    ]
+
+
 def _option_uuid(options: Any, preferred: str | None = None) -> str | None:
     if not isinstance(options, list):
         return None
@@ -339,8 +378,8 @@ def current_season_label(now: datetime | None = None) -> str:
     return f"{start_year}/{start_year + 1}"
 
 
-async def discover_team_game(api: ShlApi, team_code: str) -> tuple[ScheduleGame | None, list[ScheduleGame]]:
-    """Resolve current schedule identifiers and pick a team's current/next game."""
+async def _current_schedule_payloads(api: ShlApi) -> list[dict[str, Any]]:
+    """Resolve the active SHL season and fetch its schedule payloads."""
     season_label = current_season_label()
     initial_filter = await api.season_series_game_types_filter("SHL", season_label)
     season_uuid, series_uuid, fallback_game_type = schedule_identifiers(
@@ -372,9 +411,32 @@ async def discover_team_game(api: ShlApi, team_code: str) -> tuple[ScheduleGame 
     if not game_type_uuids:
         raise ShlApiError("SHL API did not provide an active game type")
 
-    games_by_uuid: dict[str, ScheduleGame] = {}
+    schedules: list[dict[str, Any]] = []
     for game_type_uuid in game_type_uuids:
         schedule = await api.game_schedule(season_uuid, series_uuid, game_type_uuid)
+        schedules.append(schedule)
+    return schedules
+
+
+async def discover_team_options(api: ShlApi) -> list[dict[str, str]]:
+    """Fetch current SHL teams for the config flow selector."""
+    schedules = await _current_schedule_payloads(api)
+    options: dict[str, str] = {}
+    for schedule in schedules:
+        for team in parse_team_options(schedule):
+            options.setdefault(team["code"], team["name"])
+    if not options:
+        raise ShlApiError("SHL schedule did not include any team options")
+    return [
+        {"code": code, "name": name}
+        for code, name in sorted(options.items(), key=lambda item: item[1].casefold())
+    ]
+
+
+async def discover_team_game(api: ShlApi, team_code: str) -> tuple[ScheduleGame | None, list[ScheduleGame]]:
+    """Resolve current schedule identifiers and pick a team's current/next game."""
+    games_by_uuid: dict[str, ScheduleGame] = {}
+    for schedule in await _current_schedule_payloads(api):
         games_by_uuid.update({game.game_uuid: game for game in parse_schedule(schedule)})
     games = list(games_by_uuid.values())
     return choose_team_game(games, team_code), games

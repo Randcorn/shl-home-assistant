@@ -23,7 +23,7 @@ team, but the integration accepts any SHL team code.
 
 Copy `custom_components/shl` into Home Assistant's `custom_components` folder,
 restart Home Assistant, and add **SHL** from Settings → Devices & services.
-Enter the team's schedule code; the default is `SKE` for Skellefteå AIK.
+Choose the team by name from the current SHL team list.
 
 ## Events
 

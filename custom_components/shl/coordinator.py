@@ -15,8 +15,14 @@ from .const import (
     DOMAIN,
     EVENT_GOAL,
     EVENT_PLAY_BY_PLAY,
-    LIVE_GAME_INTERVAL,
-    OFF_GAME_INTERVAL,
+    CONF_DISCOVERY_INTERVAL,
+    CONF_IDLE_POLL_INTERVAL,
+    CONF_LIVE_POLL_INTERVAL,
+    CONF_STANDINGS_INTERVAL,
+    DEFAULT_DISCOVERY_INTERVAL,
+    DEFAULT_IDLE_POLL_INTERVAL,
+    DEFAULT_LIVE_POLL_INTERVAL,
+    DEFAULT_STANDINGS_INTERVAL,
 )
 from .discovery import (
     ScheduleGame, choose_next_game, discover_team_game, is_finished_state, is_live_state,
@@ -27,8 +33,6 @@ from .models import (
     GoalEvent, parse_game_overview, parse_goal, parse_live_snapshot,
 )
 
-DISCOVERY_INTERVAL = timedelta(minutes=5)
-STANDINGS_INTERVAL = timedelta(minutes=15)
 PERSISTENCE_VERSION = 1
 
 
@@ -36,12 +40,26 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
     """Find games and poll SHL data at a rate appropriate to game state."""
 
     def __init__(
-        self, hass, api: ShlApi, team_code: str, store: Store, team_name: str = ""
+        self, hass, api: ShlApi, team_code: str, store: Store, team_name: str = "",
+        options: dict[str, Any] | None = None,
     ) -> None:
         self.api = api
         self.team_code = team_code.strip().upper()
         self.team_name = team_name.strip() or self.team_code
         self.store = store
+        options = options or {}
+        self.live_poll_interval = timedelta(seconds=self._bounded_option(
+            options, CONF_LIVE_POLL_INTERVAL, DEFAULT_LIVE_POLL_INTERVAL, 5, 120
+        ))
+        self.idle_poll_interval = timedelta(seconds=self._bounded_option(
+            options, CONF_IDLE_POLL_INTERVAL, DEFAULT_IDLE_POLL_INTERVAL, 60, 1800
+        ))
+        self.discovery_interval = timedelta(minutes=self._bounded_option(
+            options, CONF_DISCOVERY_INTERVAL, DEFAULT_DISCOVERY_INTERVAL, 1, 60
+        ))
+        self.standings_interval = timedelta(minutes=self._bounded_option(
+            options, CONF_STANDINGS_INTERVAL, DEFAULT_STANDINGS_INTERVAL, 1, 240
+        ))
         self.current_game_uuid: str | None = None
         self._selected_game: ScheduleGame | None = None
         self._all_games: list[ScheduleGame] = []
@@ -52,8 +70,17 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         self._event_baseline_ready = False
         super().__init__(
             hass, logging.getLogger(__name__), name=DOMAIN,
-            update_interval=timedelta(seconds=OFF_GAME_INTERVAL),
+            update_interval=self.idle_poll_interval,
         )
+
+    @staticmethod
+    def _bounded_option(options: dict[str, Any], key: str, default: int, minimum: int, maximum: int) -> int:
+        """Read an interval option and keep stored values within safe bounds."""
+        try:
+            value = int(options.get(key, default))
+        except (TypeError, ValueError):
+            return default
+        return min(max(value, minimum), maximum)
 
     async def async_load_state(self) -> None:
         """Restore the active game's event cursor across Home Assistant restarts."""
@@ -115,7 +142,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if (
             self._standings is not None
             and self._last_standings_refresh is not None
-            and now - self._last_standings_refresh < STANDINGS_INTERVAL
+            and now - self._last_standings_refresh < self.standings_interval
         ):
             return
         try:
@@ -158,14 +185,14 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         try:
             if (
                 self._last_discovery is None
-                or now - self._last_discovery >= DISCOVERY_INTERVAL
+                or now - self._last_discovery >= self.discovery_interval
                 or (self._selected_game and self._selected_game.is_finished)
             ):
                 await self._discover(now)
 
             selected = self._selected_game
             if selected is None:
-                self.update_interval = timedelta(seconds=OFF_GAME_INTERVAL)
+                self.update_interval = self.idle_poll_interval
                 return {
                     "game": None, "next_game": self._schedule_game_data(self._next_game(now)),
                     "standings": self._standings, "events": [],
@@ -236,9 +263,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                             "configured_team_code": self.team_code,
                         })
 
-            self.update_interval = timedelta(
-                seconds=LIVE_GAME_INTERVAL if live else OFF_GAME_INTERVAL
-            )
+            self.update_interval = self.live_poll_interval if live else self.idle_poll_interval
             goal_models: list[GoalEvent] = [
                 goal for event in all_events if (goal := parse_goal(event)) is not None
             ]
