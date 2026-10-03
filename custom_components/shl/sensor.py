@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from homeassistant.components.sensor import SensorEntity
@@ -35,6 +36,16 @@ def _int_or_none(value: Any) -> int | None:
         return None
 
 
+def _friendly_game_state(value: Any) -> str:
+    """Convert SHL's API state identifiers into readable sensor states."""
+    state = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", str(value or "unknown"))
+    state = re.sub(r"([A-Za-z])(\d)", r"\1 \2", state)
+    state = re.sub(r"[_-]+", " ", state).strip()
+    if state.casefold() == "pre game":
+        return "Pre-game"
+    return state[:1].upper() + state[1:].lower() if state else "Unknown"
+
+
 class ShlSensor(CoordinatorEntity[ShlCoordinator], SensorEntity):
     """Shared device metadata for a configured SHL team."""
 
@@ -65,7 +76,7 @@ class ShlGameSensor(ShlSensor):
     @property
     def native_value(self) -> str:
         game = (self.coordinator.data or {}).get("game")
-        return "No game" if not game else str(game.get("state", "unknown"))
+        return "No game" if not game else _friendly_game_state(game.get("state"))
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
