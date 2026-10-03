@@ -28,11 +28,13 @@ from .const import (
     CONF_IDLE_POLL_INTERVAL_MINUTES,
     CONF_LIVE_POLL_INTERVAL,
     CONF_STANDINGS_INTERVAL,
+    CONF_STANDINGS_IDLE_INTERVAL,
     DEFAULT_DISCOVERY_INTERVAL,
     DEFAULT_IDLE_POLL_INTERVAL,
     DEFAULT_IDLE_POLL_INTERVAL_MINUTES,
     DEFAULT_LIVE_POLL_INTERVAL,
     DEFAULT_STANDINGS_INTERVAL,
+    DEFAULT_STANDINGS_IDLE_INTERVAL,
     DEFAULT_TEAM_CODE,
     DEFAULT_TEAM_NAME,
     DOMAIN,
@@ -123,7 +125,7 @@ class ShlOptionsFlow(config_entries.OptionsFlow):
             except (TypeError, ValueError):
                 idle_interval_default = DEFAULT_IDLE_POLL_INTERVAL_MINUTES
             idle_interval_default = min(360, max(1, idle_interval_default))
-        else:
+        elif CONF_IDLE_POLL_INTERVAL in options:
             try:
                 legacy_idle_seconds = int(
                     options.get(CONF_IDLE_POLL_INTERVAL, DEFAULT_IDLE_POLL_INTERVAL)
@@ -134,6 +136,8 @@ class ShlOptionsFlow(config_entries.OptionsFlow):
                 360,
                 max(1, round(legacy_idle_seconds / 60)),
             )
+        else:
+            idle_interval_default = DEFAULT_IDLE_POLL_INTERVAL_MINUTES
         return self.async_show_form(
             step_id="init",
             data_schema=vol.Schema({
@@ -163,6 +167,16 @@ class ShlOptionsFlow(config_entries.OptionsFlow):
                     default=options.get(CONF_STANDINGS_INTERVAL, DEFAULT_STANDINGS_INTERVAL),
                 ): NumberSelector(NumberSelectorConfig(
                     min=1, max=240, step=1, unit_of_measurement="min",
+                    mode=NumberSelectorMode.BOX,
+                )),
+                vol.Required(
+                    CONF_STANDINGS_IDLE_INTERVAL,
+                    default=options.get(
+                        CONF_STANDINGS_IDLE_INTERVAL,
+                        DEFAULT_STANDINGS_IDLE_INTERVAL,
+                    ),
+                ): NumberSelector(NumberSelectorConfig(
+                    min=1, max=360, step=1, unit_of_measurement="min",
                     mode=NumberSelectorMode.BOX,
                 )),
             }),

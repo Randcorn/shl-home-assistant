@@ -18,12 +18,13 @@
     "step": {
       "init": {
         "title": "Update frequency",
-        "description": "Choose how often SHL checks for updates. Shorter intervals check more often.",
+        "description": "Choose how often SHL checks for updates. The league table has separate intervals for active games and quieter periods.",
         "data": {
           "live_poll_interval": "During a live game",
-          "idle_poll_interval_minutes": "Between games (minutes)",
+          "idle_poll_interval_minutes": "Between games",
           "discovery_interval": "Game schedule check",
-          "standings_interval": "League table update"
+          "standings_interval": "League table update during games",
+          "standings_idle_interval": "League table update when no games are active"
         }
       }
     }

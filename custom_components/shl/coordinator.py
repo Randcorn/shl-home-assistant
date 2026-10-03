@@ -5,7 +5,7 @@ from __future__ import annotations
 import asyncio
 import logging
 from datetime import datetime, timedelta, timezone
-from typing import Any
+from typing import Any, Iterable
 
 from homeassistant.helpers.storage import Store
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
@@ -20,11 +20,13 @@ from .const import (
     CONF_IDLE_POLL_INTERVAL_MINUTES,
     CONF_LIVE_POLL_INTERVAL,
     CONF_STANDINGS_INTERVAL,
+    CONF_STANDINGS_IDLE_INTERVAL,
     DEFAULT_DISCOVERY_INTERVAL,
     DEFAULT_IDLE_POLL_INTERVAL,
     DEFAULT_IDLE_POLL_INTERVAL_MINUTES,
     DEFAULT_LIVE_POLL_INTERVAL,
     DEFAULT_STANDINGS_INTERVAL,
+    DEFAULT_STANDINGS_IDLE_INTERVAL,
 )
 from .discovery import (
     ScheduleGame, choose_next_game, discover_team_game, is_finished_state, is_live_state,
@@ -37,18 +39,55 @@ from .models import (
 )
 
 PERSISTENCE_VERSION = 1
+LEAGUE_STANDINGS_ACTIVE_WINDOW = timedelta(hours=4)
 
 
 def next_idle_poll_interval(
-    now: datetime, game_start: datetime | None, idle_interval: timedelta
+    now: datetime,
+    game_starts: Iterable[datetime | None],
+    idle_interval: timedelta,
 ) -> timedelta:
-    """Wake at a known start time when it falls inside the idle interval."""
-    if game_start is None:
+    """Wake at the next known league game start if it falls inside idle time."""
+    upcoming_starts = [
+        game_start for game_start in game_starts
+        if game_start is not None and game_start > now
+    ]
+    if not upcoming_starts:
         return idle_interval
-    until_start = game_start - now
+    until_start = min(upcoming_starts) - now
     if timedelta(0) < until_start <= idle_interval:
         return max(timedelta(seconds=15), until_start)
     return idle_interval
+
+
+def standings_should_poll_frequently(now: datetime, games: Iterable[ScheduleGame]) -> bool:
+    """Poll standings at their configured cadence while any SHL game is active."""
+    for game in games:
+        state = normalize_state(game.state)
+        if "cancelled" in state or "postponed" in state:
+            continue
+        if game.is_live or game.started_recently(now):
+            return True
+        if (
+            game.start_time is not None
+            and timedelta(0) <= now - game.start_time <= LEAGUE_STANDINGS_ACTIVE_WINDOW
+        ):
+            return True
+    return False
+
+
+def effective_standings_interval(
+    now: datetime,
+    games: Iterable[ScheduleGame],
+    active_interval: timedelta,
+    idle_interval: timedelta,
+) -> timedelta:
+    """Select the league-table interval for the current league schedule."""
+    return (
+        active_interval
+        if standings_should_poll_frequently(now, games)
+        else idle_interval
+    )
 
 
 class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
@@ -75,17 +114,28 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 360,
             )
             self.idle_poll_interval = timedelta(minutes=idle_minutes)
-        else:
+        elif CONF_IDLE_POLL_INTERVAL in options:
             # Keep existing entries' saved seconds-based option working.
             idle_seconds = self._bounded_option(
                 options, CONF_IDLE_POLL_INTERVAL, DEFAULT_IDLE_POLL_INTERVAL, 60, 21600
             )
             self.idle_poll_interval = timedelta(seconds=idle_seconds)
+        else:
+            self.idle_poll_interval = timedelta(
+                minutes=DEFAULT_IDLE_POLL_INTERVAL_MINUTES
+            )
         self.discovery_interval = timedelta(minutes=self._bounded_option(
             options, CONF_DISCOVERY_INTERVAL, DEFAULT_DISCOVERY_INTERVAL, 1, 60
         ))
         self.standings_interval = timedelta(minutes=self._bounded_option(
             options, CONF_STANDINGS_INTERVAL, DEFAULT_STANDINGS_INTERVAL, 1, 240
+        ))
+        self.standings_idle_interval = timedelta(minutes=self._bounded_option(
+            options,
+            CONF_STANDINGS_IDLE_INTERVAL,
+            DEFAULT_STANDINGS_IDLE_INTERVAL,
+            1,
+            360,
         ))
         self.current_game_uuid: str | None = None
         self._selected_game: ScheduleGame | None = None
@@ -163,15 +213,39 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             self._all_games, self.team_code, now, self._selected_game
         )
 
+    def _idle_update_interval(self, now: datetime) -> timedelta:
+        """Choose the next idle poll around league starts and active matches."""
+        interval = next_idle_poll_interval(
+            now,
+            (game.start_time for game in self._all_games),
+            self.idle_poll_interval,
+        )
+        interval = min(
+            interval,
+            effective_standings_interval(
+                now,
+                self._all_games,
+                self.standings_interval,
+                self.standings_idle_interval,
+            ),
+        )
+        return interval
+
     async def _refresh_standings(self, selected: ScheduleGame, now: datetime) -> None:
         """Refresh standings independently so their outage does not block game data."""
         ssgt_uuid = selected.raw.get("ssgtUuid")
         if not ssgt_uuid:
             return
+        refresh_interval = effective_standings_interval(
+            now,
+            self._all_games,
+            self.standings_interval,
+            self.standings_idle_interval,
+        )
         if (
             self._standings is not None
             and self._last_standings_refresh is not None
-            and now - self._last_standings_refresh < self.standings_interval
+            and now - self._last_standings_refresh < refresh_interval
         ):
             return
         try:
@@ -220,8 +294,14 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 await self._discover(now)
 
             selected = self._selected_game
+            standings_game = selected or next(
+                (game for game in self._all_games if game.raw.get("ssgtUuid")),
+                None,
+            )
+            if standings_game is not None:
+                await self._refresh_standings(standings_game, now)
             if selected is None:
-                self.update_interval = self.idle_poll_interval
+                self.update_interval = self._idle_update_interval(now)
                 return {
                     "game": None, "next_game": self._schedule_game_data(self._next_game(now)),
                     "standings": self._standings, "events": [],
@@ -230,7 +310,6 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 }
 
             game_data = self._schedule_game_data(selected) or {}
-            await self._refresh_standings(selected, now)
             next_game = self._schedule_game_data(self._next_game(now))
             changed_events: list[dict[str, Any]] = []
             goals: list[dict[str, Any]] = []
@@ -303,7 +382,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             self.update_interval = (
                 self.live_poll_interval
                 if live
-                else next_idle_poll_interval(now, selected.start_time, self.idle_poll_interval)
+                else self._idle_update_interval(now)
             )
             goal_models: list[GoalEvent] = [
                 goal for event in all_events if (goal := parse_goal(event)) is not None

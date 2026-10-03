@@ -16,7 +16,11 @@ from custom_components.shl.discovery import (
     schedule_identifiers,
 )
 from custom_components.shl.events import process_play_by_play
-from custom_components.shl.coordinator import next_idle_poll_interval
+from custom_components.shl.coordinator import (
+    effective_standings_interval,
+    next_idle_poll_interval,
+    standings_should_poll_frequently,
+)
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -253,19 +257,63 @@ def test_multiple_revisions_in_one_poll_keep_only_latest_revision():
 def test_idle_poll_is_scheduled_for_known_game_start():
     now = datetime(2026, 10, 3, 12, 0, tzinfo=timezone.utc)
     assert next_idle_poll_interval(
-        now, now + timedelta(minutes=2), timedelta(minutes=15)
+        now, [now + timedelta(minutes=2)], timedelta(minutes=15)
     ) == timedelta(minutes=2)
 
 
 def test_known_start_near_now_uses_fifteen_second_minimum():
     now = datetime(2026, 10, 3, 12, 0, tzinfo=timezone.utc)
     assert next_idle_poll_interval(
-        now, now + timedelta(seconds=5), timedelta(minutes=15)
+        now, [now + timedelta(seconds=5)], timedelta(minutes=15)
     ) == timedelta(seconds=15)
 
 
 def test_start_outside_idle_interval_keeps_regular_interval():
     now = datetime(2026, 10, 3, 12, 0, tzinfo=timezone.utc)
     assert next_idle_poll_interval(
-        now, now + timedelta(minutes=20), timedelta(minutes=15)
+        now, [now + timedelta(minutes=20)], timedelta(minutes=15)
     ) == timedelta(minutes=15)
+
+
+def test_idle_poll_uses_closest_start_across_league_schedule():
+    now = datetime(2026, 10, 3, 12, 0, tzinfo=timezone.utc)
+    starts = [now + timedelta(minutes=20), now + timedelta(minutes=4)]
+    assert next_idle_poll_interval(now, starts, timedelta(minutes=60)) == timedelta(minutes=4)
+
+
+def test_standings_poll_frequently_during_and_after_league_game():
+    now = datetime(2026, 10, 3, 16, 0, tzinfo=timezone.utc)
+    live_game = parse_schedule({"games": [{
+        "gameUuid": "live", "rawStartDateTime": (now - timedelta(minutes=40)).isoformat(),
+        "state": "Period2", "homeTeamInfo": {"code": "SKE"},
+        "awayTeamInfo": {"code": "LHF"},
+    }]})[0]
+    finished_game = parse_schedule({"games": [{
+        "gameUuid": "finished", "rawStartDateTime": (now - timedelta(hours=2)).isoformat(),
+        "state": "GameEnded", "homeTeamInfo": {"code": "SKE"},
+        "awayTeamInfo": {"code": "LHF"},
+    }]})[0]
+    assert standings_should_poll_frequently(now, [live_game])
+    assert standings_should_poll_frequently(now, [finished_game])
+
+
+def test_standings_uses_separate_active_and_idle_intervals():
+    now = datetime(2026, 10, 3, 16, 0, tzinfo=timezone.utc)
+    active_interval = timedelta(minutes=15)
+    idle_interval = timedelta(minutes=60)
+    active_game = parse_schedule({"games": [{
+        "gameUuid": "live", "rawStartDateTime": (now - timedelta(minutes=20)).isoformat(),
+        "state": "Period1", "homeTeamInfo": {"code": "SKE"},
+        "awayTeamInfo": {"code": "LHF"},
+    }]})[0]
+    future_game = parse_schedule({"games": [{
+        "gameUuid": "future", "rawStartDateTime": (now + timedelta(days=2)).isoformat(),
+        "state": "pre-game", "homeTeamInfo": {"code": "SKE"},
+        "awayTeamInfo": {"code": "LHF"},
+    }]})[0]
+    assert effective_standings_interval(
+        now, [active_game], active_interval, idle_interval
+    ) == active_interval
+    assert effective_standings_interval(
+        now, [future_game], active_interval, idle_interval
+    ) == idle_interval

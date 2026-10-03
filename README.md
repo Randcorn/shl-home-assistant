@@ -12,6 +12,9 @@ team, but the integration accepts any SHL team code.
   configurable live and idle polling intervals. When a known game start is
   within the idle interval, it schedules a poll for puck drop and switches to
   the live interval from then on.
+- Uses the league schedule to wake at other SHL game starts as well, refreshing
+  standings at their active-game cadence during and shortly after league games,
+  and at a separately configurable cadence when no league games are active.
 - Exposes game, score, last-goal, points, league-position, and individual
   standings-statistic sensors, plus one combined home-away shots-on-goal
   sensor. The game sensor includes matchup and next-game details in its
