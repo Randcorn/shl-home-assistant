@@ -17,13 +17,13 @@
   "options": {
     "step": {
       "init": {
-        "title": "Data refresh intervals",
-        "description": "Choose how often SHL data is refreshed. Faster intervals make more requests to SHL.",
+        "title": "Update frequency",
+        "description": "Choose how often SHL checks for updates. Shorter intervals check more often.",
         "data": {
-          "live_poll_interval": "Live game polling (seconds)",
-          "idle_poll_interval": "No live game polling (seconds)",
-          "discovery_interval": "Game schedule discovery (minutes)",
-          "standings_interval": "League standings refresh (minutes)"
+          "live_poll_interval": "During a live game",
+          "idle_poll_interval": "Between games",
+          "discovery_interval": "Game schedule check",
+          "standings_interval": "League table update"
         }
       }
     }

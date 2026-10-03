@@ -1,0 +1,31 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Select an SHL team",
+        "description": "Choose the team whose games and standings you want to follow.",
+        "data": {
+          "team": "Team"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not load the current SHL teams. The default team is available as a fallback.",
+      "invalid_team": "Select a team from the list."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Update frequency",
+        "description": "Choose how often SHL checks for updates. Shorter intervals check more often.",
+        "data": {
+          "live_poll_interval": "During a live game",
+          "idle_poll_interval": "Between games",
+          "discovery_interval": "Game schedule check",
+          "standings_interval": "League table update"
+        }
+      }
+    }
+  }
+}
