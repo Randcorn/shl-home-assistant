@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from homeassistant.components.sensor import SensorEntity
+from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
@@ -158,6 +159,35 @@ class ShlLastGoalSensor(ShlSensor):
         return (self.coordinator.data or {}).get("last_goal") or {}
 
 
+class ShlShotsOnGoalSensor(ShlSensor):
+    """Home and away shots on goal for the selected game."""
+
+    _attr_has_entity_name = True
+
+    def __init__(self, coordinator: ShlCoordinator) -> None:
+        super().__init__(coordinator)
+        self._attr_unique_id = f"{DOMAIN}_{coordinator.team_code}_shots_on_goal"
+        self._attr_name = "Shots on goal"
+        self._attr_icon = "mdi:target"
+
+    @property
+    def native_value(self) -> str:
+        shots = (self.coordinator.data or {}).get("shots_on_goal") or {}
+        home, away = _int_or_none(shots.get("home")), _int_or_none(shots.get("away"))
+        return f"{home} - {away}" if home is not None and away is not None else "-"
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any]:
+        game = (self.coordinator.data or {}).get("game") or {}
+        shots = (self.coordinator.data or {}).get("shots_on_goal") or {}
+        return {
+            "home_team": _team_name(game.get("home_team") or {}),
+            "away_team": _team_name(game.get("away_team") or {}),
+            "home_shots_on_goal": shots.get("home"),
+            "away_shots_on_goal": shots.get("away"),
+        }
+
+
 class ShlPointsSensor(ShlSensor):
     """Current regular-season league points for the configured team."""
 
@@ -226,10 +256,17 @@ class ShlStandingMetricSensor(ShlSensor):
 
 async def async_setup_entry(hass, entry, async_add_entities) -> None:
     coordinator: ShlCoordinator = entry.runtime_data
+    entity_registry = er.async_get(hass)
+    for side in ("home", "away"):
+        old_unique_id = f"{DOMAIN}_{coordinator.team_code}_{side}_shots_on_goal"
+        entity_id = entity_registry.async_get_entity_id("sensor", DOMAIN, old_unique_id)
+        if entity_id:
+            entity_registry.async_remove(entity_id)
     async_add_entities([
         ShlGameSensor(coordinator),
         ShlScoreSensor(coordinator),
         ShlLastGoalSensor(coordinator),
+        ShlShotsOnGoalSensor(coordinator),
         ShlPointsSensor(coordinator),
         ShlLeaguePositionSensor(coordinator),
         *(ShlStandingMetricSensor(coordinator, key, name, icon)

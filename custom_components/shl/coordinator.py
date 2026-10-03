@@ -31,6 +31,7 @@ from .discovery import (
 from .events import process_play_by_play
 from .models import (
     GoalEvent, parse_game_overview, parse_goal, parse_live_snapshot,
+    parse_shots_on_goal,
 )
 
 PERSISTENCE_VERSION = 1
@@ -68,6 +69,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         self._standings: dict[str, Any] | None = None
         self._seen_revisions: dict[str, int] = {}
         self._event_baseline_ready = False
+        self._shots_on_goal: dict[str, int | None] = {"home": None, "away": None}
         super().__init__(
             hass, logging.getLogger(__name__), name=DOMAIN,
             update_interval=self.idle_poll_interval,
@@ -128,6 +130,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             self.current_game_uuid = new_uuid
             self._seen_revisions = {}
             self._event_baseline_ready = False
+            self._shots_on_goal = {"home": None, "away": None}
 
     def _next_game(self, now: datetime) -> ScheduleGame | None:
         return choose_next_game(
@@ -197,6 +200,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                     "game": None, "next_game": self._schedule_game_data(self._next_game(now)),
                     "standings": self._standings, "events": [],
                     "new_events": [], "goals": [], "last_goal": None,
+                    "shots_on_goal": {"home": None, "away": None},
                 }
 
             game_data = self._schedule_game_data(selected) or {}
@@ -209,6 +213,13 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
 
             if live:
                 overview, all_events = await self._fetch_live_data(selected.game_uuid)
+                try:
+                    stats = await self.api.team_stats(selected.game_uuid)
+                    self._shots_on_goal = parse_shots_on_goal(stats)
+                except ShlApiError as err:
+                    logging.getLogger(__name__).debug(
+                        "Unable to refresh SHL shots on goal: %s", err
+                    )
                 overview_data = parse_game_overview(overview)
                 game_data.update(overview_data)
                 game_data["home_team"] = {
@@ -276,6 +287,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 "new_events": changed_events,
                 "goals": goals,
                 "last_goal": last_goal.as_dict() if last_goal else None,
+                "shots_on_goal": self._shots_on_goal,
             }
         except ShlApiError as err:
             raise UpdateFailed(str(err)) from err

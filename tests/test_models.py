@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from custom_components.shl.models import parse_goal
+from custom_components.shl.models import parse_goal, parse_shots_on_goal
 
 FIXTURE = json.loads((Path(__file__).parent / "fixture_goal.json").read_text())
 
@@ -28,3 +28,15 @@ def test_goal_false_string_flags_stay_false():
     assert goal is not None
     assert goal.is_penalty_shot is False
     assert goal.is_empty_net is False
+
+def test_parse_shots_on_goal_uses_period_zero_totals():
+    stats = {
+        "home": {"statistics": [
+            {"period": 1, "parsedTotalStatistics": [{"key": "SOG", "value": 2}]},
+            {"period": 0, "parsedTotalStatistics": [{"key": "SOG", "value": 7}]},
+        ]},
+        "away": {"statistics": [
+            {"period": 0, "parsedTotalStatistics": [{"key": "SOG", "value": "4"}]},
+        ]},
+    }
+    assert parse_shots_on_goal(stats) == {"home": 7, "away": 4}

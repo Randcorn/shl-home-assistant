@@ -147,3 +147,35 @@ def parse_game_overview(payload: dict[str, Any]) -> dict[str, Any]:
             normalized["score"] = _optional_int(score)
         result["home_team" if side == "homeTeam" else "away_team"] = normalized
     return result
+
+
+def parse_shots_on_goal(payload: Any) -> dict[str, int | None]:
+    """Extract each team's total shots on goal from SHL game statistics."""
+    result: dict[str, int | None] = {"home": None, "away": None}
+    if not isinstance(payload, dict):
+        return result
+    for side in ("home", "away"):
+        team = payload.get(side)
+        if not isinstance(team, dict):
+            continue
+        periods = team.get("statistics")
+        if not isinstance(periods, list):
+            continue
+        total = next(
+            (period for period in periods
+             if isinstance(period, dict) and _as_int(period.get("period"), -1) == 0),
+            None,
+        )
+        if not isinstance(total, dict):
+            continue
+        stats = total.get("parsedTotalStatistics")
+        if not isinstance(stats, list):
+            continue
+        stat = next(
+            (item for item in stats
+             if isinstance(item, dict) and item.get("key") == "SOG"),
+            None,
+        )
+        if isinstance(stat, dict):
+            result[side] = _optional_int(stat.get("value"))
+    return result

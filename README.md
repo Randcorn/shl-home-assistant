@@ -8,11 +8,12 @@ team, but the integration accepts any SHL team code.
 
 - Discovers season, series, and game-type identifiers from the SHL filter API.
 - Finds the configured team's active or next game from the SHL schedule.
-- Polls game-overview and play-by-play during a game, with slower schedule polling
-  outside live play (15 seconds during a live game; 5 minutes otherwise).
+- Polls game-overview, play-by-play, and team statistics during a game, with
+  configurable live and idle polling intervals.
 - Exposes game, score, last-goal, points, league-position, and individual
-  standings-statistic sensors. The game sensor includes matchup and next-game
-  details in its attributes.
+  standings-statistic sensors, plus one combined home-away shots-on-goal
+  sensor. The game sensor includes matchup and next-game details in its
+  attributes.
 - Fires `shl_goal` once per newly observed goal and `shl_event` for new or
   corrected play-by-play events. It also emits game and period lifecycle events
   when the response has enough state information.
@@ -24,6 +25,7 @@ team, but the integration accepts any SHL team code.
 Copy `custom_components/shl` into Home Assistant's `custom_components` folder,
 restart Home Assistant, and add **SHL** from Settings → Devices & services.
 Choose the team by name from the current SHL team list.
+Configure refresh intervals through the integration's **Configure** option.
 
 ## Events
 

@@ -104,14 +104,11 @@ class ShlConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     @callback
     def async_get_options_flow(config_entry: config_entries.ConfigEntry):
         """Create the options flow for an SHL entry."""
-        return ShlOptionsFlow(config_entry)
+        return ShlOptionsFlow()
 
 
 class ShlOptionsFlow(config_entries.OptionsFlow):
     """Configure SHL data refresh intervals."""
-
-    def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
-        self.config_entry = config_entry
 
     async def async_step_init(self, user_input=None):
         if user_input is not None:
