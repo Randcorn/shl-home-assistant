@@ -102,6 +102,34 @@ def parse_team_standing(payload: Any, configured_team_code: str) -> dict[str, An
     rows = payload.get("leagueStandings")
     if not isinstance(rows, list):
         return None
+    # Keep a compact, JSON-safe copy of the complete table for the League
+    # position sensor. The standalone team fields below remain convenient for
+    # the numeric sensors.
+    all_teams = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        info = row.get("info") if isinstance(row.get("info"), dict) else {}
+        team_info = info.get("teamInfo") if isinstance(info.get("teamInfo"), dict) else {}
+        names = team_info.get("teamNames") if isinstance(team_info.get("teamNames"), dict) else {}
+        all_teams.append({
+            "team_code": row.get("id") or team_info.get("teamId"),
+            "team_name": (
+                team_info.get("siteTeamDisplayName") or names.get("full")
+                or names.get("long") or names.get("short") or info.get("code")
+            ),
+            "rank": row.get("rank"),
+            "points": row.get("P"),
+            "games_played": row.get("GP"),
+            "wins": row.get("W"),
+            "overtime_wins": row.get("OTW"),
+            "overtime_losses": row.get("OTL"),
+            "losses": row.get("L"),
+            "goals_for": row.get("GF"),
+            "goals_against": row.get("GA"),
+            "goal_difference": row.get("Diff"),
+        })
+    all_teams.sort(key=lambda team: team.get("rank") or 999)
     configured = configured_team_code.strip().upper()
     for row in rows:
         if not isinstance(row, dict):
@@ -143,6 +171,7 @@ def parse_team_standing(payload: Any, configured_team_code: str) -> dict[str, An
             "goals_against": row.get("GA"),
             "goal_difference": row.get("Diff"),
             "teams": len(rows),
+            "league_standings": all_teams,
             "season": payload.get("season"),
             "game_type": payload.get("gameType"),
         }

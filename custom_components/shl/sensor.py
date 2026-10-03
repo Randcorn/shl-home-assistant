@@ -219,6 +219,15 @@ class ShlLeaguePositionSensor(ShlSensor):
     def native_value(self) -> int | None:
         return _int_or_none(((self.coordinator.data or {}).get("standings") or {}).get("rank"))
 
+    @property
+    def extra_state_attributes(self) -> dict[str, Any]:
+        standings = (self.coordinator.data or {}).get("standings") or {}
+        return {
+            "season": standings.get("season"),
+            "game_type": standings.get("game_type"),
+            "teams": standings.get("league_standings", []),
+        }
+
 
 STANDING_METRICS = (
     ("games_played", "Games played", "mdi:calendar-check"),
