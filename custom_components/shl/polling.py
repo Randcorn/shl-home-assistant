@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import datetime, timedelta
 from typing import Iterable
 
-from .discovery import ScheduleGame, normalize_state
+from .discovery import ScheduleGame, is_cancelled_state
 
 LEAGUE_STANDINGS_ACTIVE_WINDOW = timedelta(hours=4)
 
@@ -31,8 +31,7 @@ def next_idle_poll_interval(
 def standings_should_poll_frequently(now: datetime, games: Iterable[ScheduleGame]) -> bool:
     """Poll standings at their configured cadence while any SHL game is active."""
     for game in games:
-        state = normalize_state(game.state)
-        if "cancelled" in state or "postponed" in state:
+        if is_cancelled_state(game.state):
             continue
         if game.is_live or game.started_recently(now):
             return True

@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from custom_components.shl.discovery import (
-    choose_team_game,
+    choose_current_game,
     choose_next_game,
     current_season_label,
     discover_team_game,
@@ -57,13 +57,14 @@ def test_parse_schedule_and_prefer_active_configured_team_game():
     }
 
     games = parse_schedule(payload)
-    selected = choose_team_game(
-        games, "ske", datetime(2026, 9, 26, 16, 30, tzinfo=timezone.utc)
-    )
+    now = datetime(2026, 9, 26, 16, 30, tzinfo=timezone.utc)
+    selected = choose_current_game(games, "ske", now)
 
     assert [game.game_uuid for game in games] == ["previous", "active", "next"]
     assert selected is not None and selected.game_uuid == "active"
     assert selected.is_live
+    next_game = choose_next_game(games, "SKE", now, selected)
+    assert next_game is not None and next_game.game_uuid == "next"
 
 
 def test_choose_next_game_for_any_configured_team():
@@ -74,9 +75,9 @@ def test_choose_next_game_for_any_configured_team():
         "homeTeamInfo": {"teamCode": "SKE"},
         "awayTeamInfo": {"teamCode": "LHF"},
     }]})
-    selected = choose_team_game(
-        games, "LHF", datetime(2026, 9, 26, tzinfo=timezone.utc)
-    )
+    now = datetime(2026, 9, 26, tzinfo=timezone.utc)
+    assert choose_current_game(games, "LHF", now) is None
+    selected = choose_next_game(games, "LHF", now)
     assert selected is not None and selected.game_uuid == "next"
 
 
@@ -140,16 +141,90 @@ def test_game_overview_is_authoritative_over_nested_team_scores():
     assert overview["away_team"]["score"] == 0
 
 
-def test_real_schedule_fixture_matches_ske_and_selects_next_game():
+def test_real_schedule_fixture_selects_finished_game_and_next_game():
     games = parse_schedule(_fixture("game_schedule_2026-2027_saik.json"))
-    selected = choose_team_game(
-        games, "SKE", datetime(2026, 9, 26, 19, 0, tzinfo=timezone.utc)
-    )
+    now = datetime(2026, 9, 26, 19, 0, tzinfo=timezone.utc)
+    selected = choose_current_game(games, "SKE", now)
     assert len(games) == 52
     assert selected is not None
-    assert selected.game_uuid == "xheynl9ev5"
-    assert selected.home_team["code"] == "SAIK"
-    assert selected.state == "pre-game"
+    assert selected.game_uuid == "u0ribje54r"
+    assert selected.is_finished
+    assert selected.away_team["code"] == "SAIK"
+    next_game = choose_next_game(games, "SKE", now, selected)
+    assert next_game is not None
+    assert next_game.game_uuid == "xheynl9ev5"
+    assert next_game.home_team["code"] == "SAIK"
+    assert next_game.state == "pre-game"
+
+
+def test_finished_game_stays_current_until_next_game_starts():
+    games = parse_schedule({"games": [
+        {"gameUuid": "finished", "rawStartDateTime": "2026-10-10T16:00:00Z",
+         "state": "post-game", "homeTeamInfo": {"code": "SAIK"},
+         "awayTeamInfo": {"code": "RBK"}},
+        {"gameUuid": "upcoming", "rawStartDateTime": "2026-10-15T17:00:00Z",
+         "state": "pre-game", "homeTeamInfo": {"code": "VLH"},
+         "awayTeamInfo": {"code": "SAIK"}},
+    ]})
+    now = datetime(2026, 10, 11, 12, 0, tzinfo=timezone.utc)
+    current = choose_current_game(games, "SKE", now)
+    assert current is not None and current.game_uuid == "finished"
+    assert choose_next_game(games, "SKE", now, current).game_uuid == "upcoming"
+
+    live_games = parse_schedule({"games": [
+        {"gameUuid": "finished", "rawStartDateTime": "2026-10-10T16:00:00Z",
+         "state": "post-game", "homeTeamInfo": {"code": "SAIK"},
+         "awayTeamInfo": {"code": "RBK"}},
+        {"gameUuid": "upcoming", "rawStartDateTime": "2026-10-15T17:00:00Z",
+         "state": "Period1", "homeTeamInfo": {"code": "VLH"},
+         "awayTeamInfo": {"code": "SAIK"}},
+    ]})
+    current = choose_current_game(live_games, "SKE", datetime(2026, 10, 15, 18, 0, tzinfo=timezone.utc))
+    assert current is not None and current.game_uuid == "upcoming"
+    assert current.is_live
+
+
+def test_live_game_is_preferred_over_finished_game():
+    games = parse_schedule({"games": [
+        {"gameUuid": "finished", "rawStartDateTime": "2026-10-10T16:00:00Z",
+         "state": "post-game", "homeTeamInfo": {"code": "SAIK"},
+         "awayTeamInfo": {"code": "RBK"}},
+        {"gameUuid": "live", "rawStartDateTime": "2026-10-11T17:00:00Z",
+         "state": "Period2", "homeTeamInfo": {"code": "LHF"},
+         "awayTeamInfo": {"code": "SAIK"}},
+    ]})
+    current = choose_current_game(games, "SKE", datetime(2026, 10, 11, 18, 0, tzinfo=timezone.utc))
+    assert current is not None and current.game_uuid == "live"
+
+
+def test_cancelled_and_postponed_games_are_never_current():
+    games = parse_schedule({"games": [
+        {"gameUuid": "cancelled", "rawStartDateTime": "2026-10-10T16:00:00Z",
+         "state": "cancelled", "homeTeamInfo": {"code": "SAIK"},
+         "awayTeamInfo": {"code": "RBK"}},
+        {"gameUuid": "postponed", "rawStartDateTime": "2026-10-11T16:00:00Z",
+         "state": "postponed", "homeTeamInfo": {"code": "SAIK"},
+         "awayTeamInfo": {"code": "RBK"}},
+        {"gameUuid": "upcoming", "rawStartDateTime": "2026-10-15T17:00:00Z",
+         "state": "pre-game", "homeTeamInfo": {"code": "VLH"},
+         "awayTeamInfo": {"code": "SAIK"}},
+    ]})
+    now = datetime(2026, 10, 12, 12, 0, tzinfo=timezone.utc)
+    assert choose_current_game(games, "SKE", now) is None
+    assert choose_next_game(games, "SKE", now).game_uuid == "upcoming"
+
+
+def test_active_window_covers_finished_games_but_started_recently_does_not():
+    game = parse_schedule({"games": [{
+        "gameUuid": "finished", "rawStartDateTime": "2026-10-10T16:00:00Z",
+        "state": "post-game", "homeTeamInfo": {"code": "SAIK"},
+        "awayTeamInfo": {"code": "RBK"}},
+    ]})[0]
+    within = datetime(2026, 10, 10, 20, 0, tzinfo=timezone.utc)
+    assert game.within_active_window(within)
+    assert not game.started_recently(within)
+    outside = datetime(2026, 10, 11, 12, 0, tzinfo=timezone.utc)
+    assert not game.within_active_window(outside)
 
 
 def test_real_schedule_team_list_produces_named_team_choices():
@@ -210,8 +285,10 @@ def test_discovery_uses_latest_ssgt_identifiers_and_schedule():
 
     api = FakeApi()
     game, games = asyncio.run(discover_team_game(api, "SKE"))
-    assert game is not None and game.game_uuid == "next-game"
+    assert game is None
     assert len(games) == 1
+    next_game = choose_next_game(games, "SKE", datetime.now(timezone.utc))
+    assert next_game is not None and next_game.game_uuid == "next-game"
     assert api.calls[1] == ("latest", "qQ9-bb0bzEWUk")
     assert api.calls[2] == (
         "schedule", "ndcf81nlb3", "qQ9-bb0bzEWUk", "qQ9-af37Ti40B"

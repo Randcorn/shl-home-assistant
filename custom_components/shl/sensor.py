@@ -46,6 +46,29 @@ def _friendly_game_state(value: Any) -> str:
     return state[:1].upper() + state[1:].lower() if state else "Unknown"
 
 
+def _matchup_attributes(game: dict[str, Any], team_code: str) -> dict[str, Any]:
+    """Teams, opponent, arena, round, and start time shared by game sensors."""
+    home = game.get("home_team") or {}
+    away = game.get("away_team") or {}
+    venue = game.get("venueInfo") if isinstance(game.get("venueInfo"), dict) else {}
+    if team_code in team_codes(home):
+        opponent = _team_name(away)
+    elif team_code in team_codes(away):
+        opponent = _team_name(home)
+    else:
+        opponent = None
+    return {
+        "game_uuid": game.get("gameUuid"),
+        "team_code": team_code,
+        "home_team": _team_name(home),
+        "away_team": _team_name(away),
+        "opponent": opponent,
+        "arena": game.get("arenaName") or venue.get("name"),
+        "round": game.get("roundNumber"),
+        "start_time": game.get("startDateTime"),
+    }
+
+
 class ShlSensor(CoordinatorEntity[ShlCoordinator], SensorEntity):
     """Shared device metadata for a configured SHL team."""
 
@@ -62,8 +85,8 @@ class ShlSensor(CoordinatorEntity[ShlCoordinator], SensorEntity):
         )
 
 
-class ShlGameSensor(ShlSensor):
-    """Game state with teams and arena as attributes."""
+class ShlCurrentGameSensor(ShlSensor):
+    """Current or most recent game, keeping its final score after it ends."""
 
     _attr_has_entity_name = True
     _attr_icon = "mdi:hockey-puck"
@@ -82,35 +105,37 @@ class ShlGameSensor(ShlSensor):
     def extra_state_attributes(self) -> dict[str, Any]:
         data = self.coordinator.data or {}
         game = data.get("game") or {}
-        home = game.get("home_team") or {}
-        away = game.get("away_team") or {}
-        venue = game.get("venueInfo") if isinstance(game.get("venueInfo"), dict) else {}
-        if self.coordinator.team_code in team_codes(home):
-            opponent = _team_name(away)
-        elif self.coordinator.team_code in team_codes(away):
-            opponent = _team_name(home)
-        else:
-            opponent = None
-        next_game = data.get("next_game") or {}
-        attributes = {
-            "game_uuid": self.coordinator.current_game_uuid,
-            "team_code": self.coordinator.team_code,
-            "home_team": _team_name(home),
-            "away_team": _team_name(away),
-            "opponent": opponent,
+        attributes = _matchup_attributes(game, self.coordinator.team_code)
+        attributes.update({
             "home_score": _game_score(game)[0],
             "away_score": _game_score(game)[1],
             "period": game.get("period"),
             "clock": game.get("time") or game.get("gameTime"),
-            "arena": game.get("arenaName") or venue.get("name"),
-            "round": game.get("roundNumber"),
-            "start_time": game.get("startDateTime"),
             "last_goal": data.get("last_goal"),
-        }
-        if next_game.get("gameUuid") != game.get("gameUuid"):
-            attributes["next_game_uuid"] = next_game.get("gameUuid")
-            attributes["next_game_start"] = next_game.get("startDateTime")
+        })
         return attributes
+
+
+class ShlNextGameSensor(ShlSensor):
+    """The team's next scheduled game."""
+
+    _attr_has_entity_name = True
+    _attr_icon = "mdi:calendar-start"
+
+    def __init__(self, coordinator: ShlCoordinator) -> None:
+        super().__init__(coordinator)
+        self._attr_unique_id = f"{DOMAIN}_{coordinator.team_code}_next_game"
+        self._attr_name = "Next game"
+
+    @property
+    def native_value(self) -> str:
+        game = (self.coordinator.data or {}).get("next_game")
+        return "No game" if not game else _friendly_game_state(game.get("state"))
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any]:
+        game = (self.coordinator.data or {}).get("next_game") or {}
+        return _matchup_attributes(game, self.coordinator.team_code)
 
 
 class ShlScoreSensor(ShlSensor):
@@ -283,7 +308,8 @@ async def async_setup_entry(hass, entry, async_add_entities) -> None:
         if entity_id:
             entity_registry.async_remove(entity_id)
     async_add_entities([
-        ShlGameSensor(coordinator),
+        ShlCurrentGameSensor(coordinator),
+        ShlNextGameSensor(coordinator),
         ShlScoreSensor(coordinator),
         ShlLastGoalSensor(coordinator),
         ShlShotsOnGoalSensor(coordinator),

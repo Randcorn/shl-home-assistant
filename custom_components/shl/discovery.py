@@ -29,10 +29,16 @@ class ScheduleGame:
         return is_finished_state(self.state)
 
     def started_recently(self, now: datetime | None = None) -> bool:
-        if self.is_finished or self.start_time is None:
+        return not self.is_finished and self.within_active_window(now)
+
+    def within_active_window(
+        self, now: datetime | None = None, window: timedelta = timedelta(hours=6)
+    ) -> bool:
+        """True when the game started recently, live or already finished."""
+        if self.start_time is None:
             return False
         now = (now or datetime.now(timezone.utc)).astimezone(timezone.utc)
-        return timedelta(0) <= now - self.start_time <= timedelta(hours=6)
+        return timedelta(0) <= now - self.start_time <= window
 
 
 def normalize_state(value: Any) -> str:
@@ -59,6 +65,11 @@ def is_finished_state(value: Any) -> bool:
     return any(term in state for term in (
         "finished", "ended", "final", "completed", "cancelled", "postponed", "post_game"
     ))
+
+
+def is_cancelled_state(value: Any) -> bool:
+    state = normalize_state(value)
+    return "cancelled" in state or "postponed" in state
 
 
 def _first(mapping: dict[str, Any], *keys: str) -> Any:
@@ -351,26 +362,27 @@ def latest_ssgt_identifiers(payload: Any) -> tuple[str | None, str | None, str |
     )  # type: ignore[return-value]
 
 
-def choose_team_game(games: list[ScheduleGame], team_code: str, now: datetime | None = None) -> ScheduleGame | None:
-    """Prefer the active game, then the nearest not-yet-finished game."""
+def choose_current_game(games: list[ScheduleGame], team_code: str, now: datetime | None = None) -> ScheduleGame | None:
+    """Select the team's current game: the live one, or the most recently started.
+
+    A finished game stays selected until the next game starts, so its final
+    score and statistics remain visible. Cancelled and postponed games are
+    never selected.
+    """
     team_code = team_code.strip().upper()
-    matching = [game for game in games if team_code in team_codes(game.home_team) | team_codes(game.away_team)]
-    if not matching:
-        return None
-    live = [game for game in matching if game.is_live]
     now = (now or datetime.now(timezone.utc)).astimezone(timezone.utc)
+    matching = [game for game in games if team_code in team_codes(game.home_team) | team_codes(game.away_team)]
+    live = [game for game in matching if game.is_live]
     if live:
         return max(live, key=lambda game: game.start_time or datetime.min.replace(tzinfo=timezone.utc))
-    recently_started = [
+    started = [
         game for game in matching
-        if not game.is_finished and game.start_time
-        and timedelta(0) <= now - game.start_time <= timedelta(hours=6)
+        if game.start_time is not None
+        and game.start_time <= now
+        and not is_cancelled_state(game.state)
     ]
-    if recently_started:
-        return max(recently_started, key=lambda game: game.start_time)
-    upcoming = [game for game in matching if not game.is_finished and (game.start_time is None or game.start_time >= now)]
-    if upcoming:
-        return min(upcoming, key=lambda game: game.start_time or datetime.max.replace(tzinfo=timezone.utc))
+    if started:
+        return max(started, key=lambda game: game.start_time)
     return None
 
 
@@ -463,9 +475,9 @@ async def discover_team_options(api: ShlApi) -> list[dict[str, str]]:
 
 
 async def discover_team_game(api: ShlApi, team_code: str) -> tuple[ScheduleGame | None, list[ScheduleGame]]:
-    """Resolve current schedule identifiers and pick a team's current/next game."""
+    """Resolve current schedule identifiers and pick a team's current game."""
     games_by_uuid: dict[str, ScheduleGame] = {}
     for schedule in await _current_schedule_payloads(api):
         games_by_uuid.update({game.game_uuid: game for game in parse_schedule(schedule)})
     games = list(games_by_uuid.values())
-    return choose_team_game(games, team_code), games
+    return choose_current_game(games, team_code), games

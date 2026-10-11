@@ -7,7 +7,8 @@ team, but the integration accepts any SHL team code.
 ## Current features
 
 - Discovers season, series, and game-type identifiers from the SHL filter API.
-- Finds the configured team's active or next game from the SHL schedule.
+- Finds the configured team's current game (live, or the most recently
+  started one) and its next game from the SHL schedule.
 - Polls game-overview, play-by-play, and team statistics during a game, with
   configurable live and idle polling intervals. When a known game start is
   within the idle interval, it schedules a poll for puck drop and switches to
@@ -15,10 +16,11 @@ team, but the integration accepts any SHL team code.
 - Uses the league schedule to wake at other SHL game starts as well, refreshing
   standings at their active-game cadence during and shortly after league games,
   and at a separately configurable cadence when no league games are active.
-- Exposes game, score, last-goal, points, league-position, and individual
-  standings-statistic sensors, plus one combined home-away shots-on-goal
-  sensor. The game sensor includes matchup and next-game details in its
-  attributes.
+- Exposes game, next-game, score, last-goal, points, league-position, and
+  individual standings-statistic sensors, plus one combined home-away
+  shots-on-goal sensor. The game sensor tracks the previous/current game and
+  keeps its final score, shots, and last goal until the next game starts;
+  the next-game sensor shows the upcoming fixture with its matchup details.
 - Fires `shl_goal` once per newly observed goal and `shl_event` for new or
   corrected play-by-play events. It also emits game and period lifecycle events
   when the response has enough state information.

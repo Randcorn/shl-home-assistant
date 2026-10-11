@@ -98,6 +98,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         self._seen_revisions: dict[str, int] = {}
         self._event_baseline_ready = False
         self._shots_on_goal: dict[str, int | None] = {"home": None, "away": None}
+        self._last_details: tuple[str, dict[str, Any]] | None = None
         super().__init__(
             hass, logging.getLogger(__name__), name=DOMAIN,
             update_interval=self.idle_poll_interval,
@@ -159,6 +160,10 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             self._seen_revisions = {}
             self._event_baseline_ready = False
             self._shots_on_goal = {"home": None, "away": None}
+            self._last_details = None
+
+    def _details_cached(self, game_uuid: str) -> bool:
+        return self._last_details is not None and self._last_details[0] == game_uuid
 
     def _next_game(self, now: datetime) -> ScheduleGame | None:
         return choose_next_game(
@@ -266,9 +271,21 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             changed_events: list[dict[str, Any]] = []
             goals: list[dict[str, Any]] = []
             all_events: list[dict[str, Any]] = []
+            last_goal: GoalEvent | None = None
+            shots_on_goal: dict[str, int | None] = {"home": None, "away": None}
             live = selected.is_live or selected.started_recently(now)
+            # Keep fetching a finished game briefly so its final data is
+            # authoritative, and fetch once if it was never cached (for
+            # example when Home Assistant was off during the game).
+            active = live or (
+                selected.is_finished
+                and (
+                    selected.within_active_window(now)
+                    or not self._details_cached(selected.game_uuid)
+                )
+            )
 
-            if live:
+            if active:
                 overview, all_events = await self._fetch_live_data(selected.game_uuid)
                 try:
                     stats = await self.api.team_stats(selected.game_uuid)
@@ -330,16 +347,30 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                             "team_code": goal.team_code or self.team_code,
                             "configured_team_code": self.team_code,
                         })
+                goal_models: list[GoalEvent] = [
+                    goal for event in all_events if (goal := parse_goal(event)) is not None
+                ]
+                last_goal = max(
+                    goal_models, key=lambda goal: (goal.event_id, goal.revision), default=None
+                )
+                shots_on_goal = self._shots_on_goal
+                self._last_details = (
+                    selected.game_uuid,
+                    {"game": game_data, "last_goal": last_goal, "shots_on_goal": shots_on_goal},
+                )
+            elif self._details_cached(selected.game_uuid) and self._last_details is not None:
+                # A finished game outside the active window keeps its cached
+                # final score, shots, and last goal until the next game starts.
+                cached = self._last_details[1]
+                game_data = dict(cached["game"])
+                last_goal = cached["last_goal"]
+                shots_on_goal = cached["shots_on_goal"]
 
             self.update_interval = (
                 self.live_poll_interval
                 if live
                 else self._idle_update_interval(now)
             )
-            goal_models: list[GoalEvent] = [
-                goal for event in all_events if (goal := parse_goal(event)) is not None
-            ]
-            last_goal = max(goal_models, key=lambda goal: (goal.event_id, goal.revision), default=None)
             return {
                 "game": game_data,
                 "next_game": next_game,
@@ -348,7 +379,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 "new_events": changed_events,
                 "goals": goals,
                 "last_goal": last_goal.as_dict() if last_goal else None,
-                "shots_on_goal": self._shots_on_goal,
+                "shots_on_goal": shots_on_goal,
             }
         except ShlApiError as err:
             raise UpdateFailed(str(err)) from err
@@ -365,17 +396,24 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         self, game_uuid: str, game: dict[str, Any], new_state: Any
     ) -> None:
         """Emit lifecycle events only when the selected game's state changes."""
-        previous = (self.data or {}).get("game") or {}
-        if previous.get("gameUuid") != game_uuid:
+        if self.data is None:
+            # First update after setup or restart: establish a baseline
+            # without replaying lifecycle transitions.
             return
-        old_state = previous.get("state")
+        previous = self.data.get("game") or {}
         context = {
             "game_uuid": game_uuid,
             "team_code": self.team_code,
             "home_team": game.get("home_team"),
             "away_team": game.get("away_team"),
         }
-        old_period = self._int(previous.get("period"))
+        if previous.get("gameUuid") != game_uuid:
+            # The selection switched to a newly started game.
+            old_state = None
+            old_period = 0
+        else:
+            old_state = previous.get("state")
+            old_period = self._int(previous.get("period"))
         new_period = self._int(game.get("period"))
         if old_state != new_state:
             if not is_live_state(old_state) and is_live_state(new_state):
