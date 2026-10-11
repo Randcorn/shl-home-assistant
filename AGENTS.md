@@ -20,8 +20,10 @@ See `docs/SHL_API.md`.
 
 ## Current state
 This repo started from prototype v0.1.0. It contains an API client, coordinator,
-models, config flow, sensor platform and tests, but game discovery and the full
-live polling/event pipeline are not production-ready.
+models, config flow, sensor platform and tests. Game discovery, live polling,
+idempotent event delivery, and the sensor/event surface are implemented and
+running in a Home Assistant dev container. The remaining gap is real-world
+verification during a live game (see docs/DEVELOPMENT_PLAN.md).
 
 ## Event identity
 For play-by-play events:

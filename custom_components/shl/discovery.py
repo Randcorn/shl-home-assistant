@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from typing import Any
@@ -42,7 +43,6 @@ class ScheduleGame:
 
 
 def normalize_state(value: Any) -> str:
-    import re
     value = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", str(value or ""))
     return value.strip().lower().replace(" ", "_").replace("-", "_")
 
@@ -117,18 +117,21 @@ def parse_team_standing(payload: Any, configured_team_code: str) -> dict[str, An
     # position sensor. The standalone team fields below remain convenient for
     # the numeric sensors.
     all_teams = []
+    configured = configured_team_code.strip().upper()
+    selected: dict[str, Any] | None = None
     for row in rows:
         if not isinstance(row, dict):
             continue
         info = row.get("info") if isinstance(row.get("info"), dict) else {}
         team_info = info.get("teamInfo") if isinstance(info.get("teamInfo"), dict) else {}
         names = team_info.get("teamNames") if isinstance(team_info.get("teamNames"), dict) else {}
+        team_name = (
+            team_info.get("siteTeamDisplayName") or names.get("full")
+            or names.get("long") or names.get("short") or info.get("code")
+        )
         all_teams.append({
             "team_code": row.get("id") or team_info.get("teamId"),
-            "team_name": (
-                team_info.get("siteTeamDisplayName") or names.get("full")
-                or names.get("long") or names.get("short") or info.get("code")
-            ),
+            "team_name": team_name,
             "rank": row.get("rank"),
             "points": row.get("P"),
             "games_played": row.get("GP"),
@@ -140,14 +143,8 @@ def parse_team_standing(payload: Any, configured_team_code: str) -> dict[str, An
             "goals_against": row.get("GA"),
             "goal_difference": row.get("Diff"),
         })
-    all_teams.sort(key=lambda team: team.get("rank") or 999)
-    configured = configured_team_code.strip().upper()
-    for row in rows:
-        if not isinstance(row, dict):
+        if selected is not None:
             continue
-        info = row.get("info") if isinstance(row.get("info"), dict) else {}
-        team_info = info.get("teamInfo") if isinstance(info.get("teamInfo"), dict) else {}
-        names = team_info.get("teamNames") if isinstance(team_info.get("teamNames"), dict) else {}
         candidate_codes = {
             str(value).strip().upper()
             for value in (
@@ -163,11 +160,7 @@ def parse_team_standing(payload: Any, configured_team_code: str) -> dict[str, An
             candidate_codes.add("SAIK")
         if configured not in candidate_codes:
             continue
-        team_name = (
-            team_info.get("siteTeamDisplayName") or names.get("full")
-            or names.get("long") or names.get("short") or info.get("code")
-        )
-        return {
+        selected = {
             "team_code": configured,
             "team_name": team_name,
             "rank": row.get("rank"),
@@ -181,11 +174,17 @@ def parse_team_standing(payload: Any, configured_team_code: str) -> dict[str, An
             "goals_for": row.get("GF"),
             "goals_against": row.get("GA"),
             "goal_difference": row.get("Diff"),
-            "teams": len(rows),
-            "league_standings": all_teams,
-            "season": payload.get("season"),
-            "game_type": payload.get("gameType"),
         }
+    if selected is None:
+        return None
+    all_teams.sort(key=lambda team: team.get("rank") or 999)
+    return {
+        **selected,
+        "teams": len(rows),
+        "league_standings": all_teams,
+        "season": payload.get("season"),
+        "game_type": payload.get("gameType"),
+    }
 
 
 def _parse_datetime(value: Any) -> datetime | None:

@@ -22,7 +22,6 @@ DEFAULT_STANDINGS_INTERVAL = 15
 DEFAULT_STANDINGS_IDLE_INTERVAL = 60
 SEASON_SERIES_FILTER_PATH = "/api/sports-v2/season-series-game-types-filter"
 GAME_SCHEDULE_PATH = "/api/sports-v2/game-schedule"
-GAME_INFO_PATH = "/api/gameday/game-info/{game_uuid}"
 GAME_OVERVIEW_PATH = "/api/gameday/game-overview/{game_uuid}"
 PLAY_BY_PLAY_PATH = "/api/gameday/play-by-play/{game_uuid}"
 TEAM_STATS_PATH = "/api/gameday/team-stats/{game_uuid}"

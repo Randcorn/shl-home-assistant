@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from homeassistant.components.sensor import SensorEntity
+from homeassistant.components.sensor import SensorEntity, SensorStateClass
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
@@ -71,9 +71,6 @@ def _matchup_attributes(game: dict[str, Any], team_code: str) -> dict[str, Any]:
 
 class ShlSensor(CoordinatorEntity[ShlCoordinator], SensorEntity):
     """Shared device metadata for a configured SHL team."""
-
-    def __init__(self, coordinator: ShlCoordinator) -> None:
-        super().__init__(coordinator)
 
     @property
     def device_info(self) -> DeviceInfo:
@@ -229,6 +226,7 @@ class ShlPointsSensor(ShlSensor):
 
     _attr_has_entity_name = True
     _attr_icon = "mdi:star-circle"
+    _attr_state_class = SensorStateClass.MEASUREMENT
 
     def __init__(self, coordinator: ShlCoordinator) -> None:
         super().__init__(coordinator)
@@ -245,6 +243,7 @@ class ShlLeaguePositionSensor(ShlSensor):
 
     _attr_has_entity_name = True
     _attr_icon = "mdi:trophy"
+    _attr_state_class = SensorStateClass.MEASUREMENT
 
     def __init__(self, coordinator: ShlCoordinator) -> None:
         super().__init__(coordinator)
@@ -283,6 +282,7 @@ class ShlStandingMetricSensor(ShlSensor):
     """One numeric standings field exposed as its own sensor entity."""
 
     _attr_has_entity_name = True
+    _attr_state_class = SensorStateClass.MEASUREMENT
 
     def __init__(
         self, coordinator: ShlCoordinator, key: str, name: str, icon: str

@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from custom_components.shl.models import parse_goal, parse_shots_on_goal
 
-FIXTURE = json.loads((Path(__file__).parent / "fixture_goal.json").read_text())
+FIXTURE = json.loads((Path(__file__).parent / "fixtures" / "fixture_goal.json").read_text())
 
 def test_parse_goal_fixture():
     goal = parse_goal(FIXTURE)

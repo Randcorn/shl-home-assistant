@@ -2,9 +2,10 @@
   "domain": "shl",
   "name": "SHL",
   "version": "0.3.13",
-  "documentation": "https://www.shl.se/live",
+  "documentation": "https://github.com/YOUR_GITHUB_USERNAME/shl-home-assistant",
   "requirements": [],
   "codeowners": [],
   "config_flow": true,
+  "integration_type": "service",
   "iot_class": "cloud_polling"
 }

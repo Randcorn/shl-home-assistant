@@ -10,7 +10,6 @@ import aiohttp
 
 from .const import (
     API_BASE,
-    GAME_INFO_PATH,
     GAME_OVERVIEW_PATH,
     GAME_SCHEDULE_PATH,
     LATEST_SSGT_PATH,
@@ -92,15 +91,6 @@ class ShlApi:
         data = await self._get(GAME_SCHEDULE_PATH, params)
         if not isinstance(data, dict) or not isinstance(data.get("gameInfo"), list):
             raise ShlApiError("Unexpected game-schedule response shape")
-        return data
-
-    async def game_info(self, game_uuid: str) -> dict[str, Any]:
-        path = GAME_INFO_PATH.format(game_uuid=quote(game_uuid, safe=""))
-        data = await self._get(path)
-        if data is None:
-            return {}
-        if not isinstance(data, dict):
-            raise ShlApiError("Unexpected game-info response shape")
         return data
 
     async def game_overview(self, game_uuid: str) -> dict[str, Any]:
