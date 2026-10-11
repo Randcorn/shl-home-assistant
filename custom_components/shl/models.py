@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 
@@ -122,6 +123,54 @@ def parse_live_snapshot(events: list[dict[str, Any]]) -> dict[str, Any]:
         if isinstance(value, dict):
             snapshot["home_team" if side == "homeTeam" else "away_team"] = value
     return snapshot
+
+
+def parse_feed_datetime(value: Any) -> datetime | None:
+    """Parse a play-by-play timestamp as timezone-less Swedish local time.
+
+    The feed stamps `startedAt`/`finishedAt` with a misleading `Z` suffix and
+    leaves `realWorldTime` without one; both are local wall-clock times.
+    """
+    if isinstance(value, datetime):
+        parsed = value
+    elif value:
+        try:
+            parsed = datetime.fromisoformat(str(value).strip())
+        except (TypeError, ValueError):
+            return None
+    else:
+        return None
+    if parsed.tzinfo is not None:
+        parsed = parsed.replace(tzinfo=None)
+    return parsed
+
+
+def period_break_start(
+    events: list[dict[str, Any]], local_offset: timedelta | None
+) -> datetime | None:
+    """When the current period break started, in UTC.
+
+    Uses the feed's period-end events. Their timestamps are Swedish local
+    time, so `local_offset` (from the schedule row) converts them to UTC.
+    Returns None when the offset is unknown or no period has finished yet.
+    """
+    if local_offset is None:
+        return None
+    started: datetime | None = None
+    for event in events:
+        if not isinstance(event, dict) or event.get("type") != "period":
+            continue
+        if not event.get("finished") and event.get("finishedAt") is None:
+            continue
+        stamp = parse_feed_datetime(
+            event.get("finishedAt") or event.get("realWorldTime")
+        )
+        if stamp is None:
+            continue
+        stamp = (stamp - local_offset).replace(tzinfo=timezone.utc)
+        if started is None or stamp > started:
+            started = stamp
+    return started
 
 
 def parse_game_overview(payload: dict[str, Any]) -> dict[str, Any]:

@@ -14,11 +14,15 @@ from custom_components.shl.discovery import (
     parse_team_options,
     parse_schedule,
     schedule_identifiers,
+    schedule_local_offset,
 )
 from custom_components.shl.events import process_play_by_play
+from custom_components.shl.models import parse_feed_datetime, period_break_start
 from custom_components.shl.polling import (
+    PERIOD_BREAK_MAX_PAUSE,
     effective_standings_interval,
     next_idle_poll_interval,
+    period_break_poll_interval,
     standings_should_poll_frequently,
 )
 
@@ -394,3 +398,125 @@ def test_standings_uses_separate_active_and_idle_intervals():
     assert effective_standings_interval(
         now, [future_game], active_interval, idle_interval
     ) == idle_interval
+
+
+def test_period_break_poll_interval_pauses_but_caps_each_pause():
+    now = datetime(2026, 10, 15, 18, 0, tzinfo=timezone.utc)
+    live = timedelta(seconds=15)
+    # One minute into the break: 16 minutes of pause left, capped at five.
+    assert period_break_poll_interval(
+        now, now - timedelta(minutes=1), live
+    ) == timedelta(minutes=5)
+    # Fifteen minutes in: only the remaining pause before the resume lead.
+    assert period_break_poll_interval(
+        now, now - timedelta(minutes=15), live
+    ) == timedelta(minutes=2)
+
+
+def test_period_break_poll_interval_uses_live_rate_near_puck_drop():
+    now = datetime(2026, 10, 15, 18, 0, tzinfo=timezone.utc)
+    live = timedelta(seconds=15)
+    # At the resume lead: poll at the live rate for the expected puck drop.
+    assert period_break_poll_interval(now, now - timedelta(minutes=17), live) == live
+    # Past the expected resume (delayed puck drop): keep the live rate.
+    assert period_break_poll_interval(now, now - timedelta(minutes=25), live) == live
+
+
+def test_period_break_poll_interval_without_anchor_uses_max_pause():
+    now = datetime(2026, 10, 15, 18, 0, tzinfo=timezone.utc)
+    assert period_break_poll_interval(
+        now, None, timedelta(seconds=15)
+    ) == PERIOD_BREAK_MAX_PAUSE
+
+
+def test_period_break_poll_interval_never_shorter_than_live_rate():
+    now = datetime(2026, 10, 15, 18, 0, tzinfo=timezone.utc)
+    live = timedelta(seconds=90)
+    # 30 seconds of pause left before the resume lead: wait for the lead,
+    # but never poll slower than the configured live rate.
+    assert period_break_poll_interval(
+        now, now - timedelta(minutes=16, seconds=30), live
+    ) == live
+
+
+def test_schedule_local_offset_uses_raw_utc_and_local_start():
+    raw = {
+        "rawStartDateTime": "2026-09-26T16:00:00.000Z",
+        "startDateTime": "2026-09-26 18:00:00",
+    }
+    assert schedule_local_offset(raw) == timedelta(hours=2)
+    assert schedule_local_offset({"rawStartDateTime": raw["rawStartDateTime"]}) is None
+    assert schedule_local_offset({}) is None
+
+
+def test_parse_feed_datetime_treats_stamps_as_local_wall_clock():
+    assert parse_feed_datetime("2026-09-26T18:30:49.019Z") == datetime(
+        2026, 9, 26, 18, 30, 49, 19000
+    )
+    assert parse_feed_datetime("2026-09-26T18:30:49.194768") == datetime(
+        2026, 9, 26, 18, 30, 49, 194768
+    )
+    assert parse_feed_datetime(None) is None
+    assert parse_feed_datetime("not a time") is None
+
+
+def test_period_break_start_uses_latest_finished_period_event():
+    events = [
+        {"type": "period", "period": 1, "finished": True,
+         "finishedAt": "2026-09-26T18:30:49.019Z"},
+        {"type": "period", "period": 2, "finished": True,
+         "finishedAt": "2026-09-26T19:23:54.036Z"},
+        {"type": "period", "period": 3, "finished": False,
+         "startedAt": "2026-09-26T19:41:56.023Z"},
+        {"type": "shot", "realWorldTime": "2026-09-26T19:50:00"},
+    ]
+    started = period_break_start(events, timedelta(hours=2))
+    assert started == datetime(2026, 9, 26, 17, 23, 54, 36000, tzinfo=timezone.utc)
+
+
+def test_period_break_start_falls_back_to_real_world_time():
+    events = [{
+        "type": "period", "finished": True,
+        "realWorldTime": "2026-09-26T18:30:49.194768",
+    }]
+    started = period_break_start(events, timedelta(hours=2))
+    assert started == datetime(2026, 9, 26, 16, 30, 49, 194768, tzinfo=timezone.utc)
+
+
+def test_period_break_start_ignores_unfinished_periods_and_missing_offset():
+    events = [{
+        "type": "period", "period": 1, "finished": False,
+        "startedAt": "2026-09-26T18:00:52.047Z",
+        "realWorldTime": "2026-09-26T18:00:52.047",
+    }]
+    assert period_break_start(events, timedelta(hours=2)) is None
+    assert period_break_start([], timedelta(hours=2)) is None
+    assert period_break_start(
+        [{"type": "period", "finished": True,
+          "finishedAt": "2026-09-26T18:30:49.019Z"}],
+        None,
+    ) is None
+
+
+def test_real_fixtures_give_break_start_and_intermission_length():
+    schedule = _fixture("game_schedule_2026-2027_saik.json")
+    rows = schedule.get("gameInfo") if isinstance(schedule, dict) else schedule
+    row = next(item for item in rows if item.get("uuid") == "u0ribje54r")
+    offset = schedule_local_offset(row)
+    assert offset == timedelta(hours=2)
+
+    events = _fixture("play_by_play_20260926_OHK_SAIK.json")
+    started = period_break_start(events, offset)
+    assert started == datetime(2026, 9, 26, 18, 11, 27, 38000, tzinfo=timezone.utc)
+
+    # The observed intermissions bracket the 18-minute break length.
+    periods = sorted(
+        (event for event in events if event.get("type") == "period"),
+        key=lambda event: event["period"],
+    )
+    breaks = [
+        parse_feed_datetime(later["startedAt"]) - parse_feed_datetime(earlier["finishedAt"])
+        for earlier, later in zip(periods, periods[1:])
+    ]
+    assert len(breaks) == 2
+    assert all(timedelta(minutes=17) <= length <= timedelta(minutes=19) for length in breaks)

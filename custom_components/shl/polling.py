@@ -9,6 +9,13 @@ from .discovery import ScheduleGame, is_cancelled_state
 
 LEAGUE_STANDINGS_ACTIVE_WINDOW = timedelta(hours=4)
 
+# SHL intermissions last about 18 minutes (observed 17m57s and 18m02s).
+PERIOD_BREAK_LENGTH = timedelta(minutes=18)
+# Resume live-rate polling this long before the expected next puck drop.
+PERIOD_BREAK_RESUME_LEAD = timedelta(minutes=1)
+# Never pause longer than this without re-checking the game state.
+PERIOD_BREAK_MAX_PAUSE = timedelta(minutes=5)
+
 
 def next_idle_poll_interval(
     now: datetime,
@@ -55,3 +62,25 @@ def effective_standings_interval(
         if standings_should_poll_frequently(now, games)
         else idle_interval
     )
+
+
+def period_break_poll_interval(
+    now: datetime,
+    break_started: datetime | None,
+    live_interval: timedelta,
+) -> timedelta:
+    """Pause polling during a period break without missing the next period.
+
+    When the break start is known, sleep until shortly before the expected
+    puck drop, but never pause longer than PERIOD_BREAK_MAX_PAUSE without
+    re-checking. Without a known break start, re-check at least every
+    PERIOD_BREAK_MAX_PAUSE so a delayed period is never missed for long.
+    """
+    if break_started is None:
+        return max(live_interval, PERIOD_BREAK_MAX_PAUSE)
+    until_resume = break_started + PERIOD_BREAK_LENGTH - now
+    if until_resume <= PERIOD_BREAK_RESUME_LEAD:
+        # At or past the expected puck drop: poll at the live rate.
+        return live_interval
+    pause = min(until_resume - PERIOD_BREAK_RESUME_LEAD, PERIOD_BREAK_MAX_PAUSE)
+    return max(live_interval, pause)

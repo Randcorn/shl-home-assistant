@@ -12,7 +12,9 @@ team, but the integration accepts any SHL team code.
 - Polls game-overview, play-by-play, and team statistics during a game, with
   configurable live and idle polling intervals. When a known game start is
   within the idle interval, it schedules a poll for puck drop and switches to
-  the live interval from then on.
+  the live interval from then on. During a period break it pauses polling
+  until shortly before the expected next puck drop, re-checking at least
+  every five minutes so a delayed period is never missed for long.
 - Uses the league schedule to wake at other SHL game starts as well, refreshing
   standings at their active-game cadence during and shortly after league games,
   and at a separately configurable cadence when no league games are active.

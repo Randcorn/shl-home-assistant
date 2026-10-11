@@ -202,6 +202,19 @@ def _parse_datetime(value: Any) -> datetime | None:
     return parsed.astimezone(timezone.utc)
 
 
+def schedule_local_offset(raw: dict[str, Any]) -> timedelta | None:
+    """The schedule row's local-to-UTC offset, for converting feed timestamps.
+
+    `rawStartDateTime` is UTC while `startDateTime` is timezone-less local
+    time; their difference is the offset of the feed's naive timestamps.
+    """
+    utc_start = _parse_datetime(raw.get("rawStartDateTime"))
+    local_start = _parse_datetime(raw.get("startDateTime"))
+    if utc_start is None or local_start is None:
+        return None
+    return local_start - utc_start
+
+
 def _game_rows(payload: Any) -> list[dict[str, Any]]:
     """Extract schedule rows from observed and commonly wrapped responses."""
     if isinstance(payload, list):

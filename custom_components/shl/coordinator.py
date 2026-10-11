@@ -30,14 +30,16 @@ from .const import (
 )
 from .discovery import (
     ScheduleGame, choose_next_game, discover_team_game, is_finished_state, is_live_state,
-    normalize_state, parse_team_standing,
+    normalize_state, parse_team_standing, schedule_local_offset,
 )
 from .events import process_play_by_play
 from .models import (
     GoalEvent, parse_game_overview, parse_goal, parse_live_snapshot,
-    parse_shots_on_goal,
+    parse_shots_on_goal, period_break_start,
 )
-from .polling import effective_standings_interval, next_idle_poll_interval
+from .polling import (
+    effective_standings_interval, next_idle_poll_interval, period_break_poll_interval,
+)
 
 PERSISTENCE_VERSION = 1
 
@@ -366,11 +368,21 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 last_goal = cached["last_goal"]
                 shots_on_goal = cached["shots_on_goal"]
 
-            self.update_interval = (
-                self.live_poll_interval
-                if live
-                else self._idle_update_interval(now)
-            )
+            if live and self._is_period_break(state):
+                # A period break needs no live-rate polling: sleep until
+                # shortly before the expected next puck drop, re-checking at
+                # least every few minutes so a delayed period is never
+                # missed for long.
+                break_started = period_break_start(
+                    all_events, schedule_local_offset(selected.raw)
+                )
+                self.update_interval = period_break_poll_interval(
+                    now, break_started, self.live_poll_interval
+                )
+            elif live:
+                self.update_interval = self.live_poll_interval
+            else:
+                self.update_interval = self._idle_update_interval(now)
             return {
                 "game": game_data,
                 "next_game": next_game,

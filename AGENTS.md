@@ -22,8 +22,11 @@ See `docs/SHL_API.md`.
 This repo started from prototype v0.1.0. It contains an API client, coordinator,
 models, config flow, sensor platform and tests. Game discovery, live polling,
 idempotent event delivery, and the sensor/event surface are implemented and
-running in a Home Assistant dev container. The remaining gap is real-world
-verification during a live game (see docs/DEVELOPMENT_PLAN.md).
+running in a Home Assistant dev container. Live polling pauses during period
+breaks: it sleeps until shortly before the expected next puck drop (break start
+plus the ~18 minute SHL intermission, taken from the feed's period-end events)
+and never pauses longer than five minutes without re-checking. The remaining
+gap is real-world verification during a live game (see docs/DEVELOPMENT_PLAN.md).
 
 ## Event identity
 For play-by-play events:
