@@ -1,0 +1,4 @@
+# Test dependencies. The test suite runs without Home Assistant installed;
+# tests/conftest.py bypasses the HA-dependent package __init__.py.
+pytest
+aiohttp

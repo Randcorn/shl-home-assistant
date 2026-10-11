@@ -32,6 +32,18 @@ restart Home Assistant, and add **SHL** from Settings → Devices & services.
 Choose the team by name from the current SHL team list.
 Configure refresh intervals through the integration's **Configure** option.
 
+## Development
+
+Run the tests (they do not require Home Assistant to be installed):
+
+```bash
+py -m pip install -r requirements_test.txt
+py -m pytest tests/ -q
+```
+
+To deploy to a local Home Assistant dev container, see `scripts/README.md`
+(the deploy helper is machine-local and not committed to the repo).
+
 ## Events
 
 `shl_goal` includes the normalized scorer, scoring team, period, game time,

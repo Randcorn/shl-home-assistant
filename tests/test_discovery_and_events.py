@@ -16,7 +16,7 @@ from custom_components.shl.discovery import (
     schedule_identifiers,
 )
 from custom_components.shl.events import process_play_by_play
-from custom_components.shl.coordinator import (
+from custom_components.shl.polling import (
     effective_standings_interval,
     next_idle_poll_interval,
     standings_should_poll_frequently,

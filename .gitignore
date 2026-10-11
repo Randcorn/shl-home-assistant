@@ -1,0 +1,6 @@
+__pycache__/
+.pytest_cache/
+
+# Local-only helper: targets this machine's Home Assistant dev container.
+/scripts/deploy.sh
+/scripts/README.md
