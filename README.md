@@ -1,8 +1,7 @@
 # SHL Home Assistant integration
 
 A Home Assistant custom integration that discovers current and upcoming SHL
-games and follows a configured team's live game. Skellefteå AIK is the default
-team, but the integration accepts any SHL team code.
+games and follows a configured team's live game.
 
 ## Current features
 
@@ -59,17 +58,6 @@ Run the tests (they do not require Home Assistant to be installed):
 py -m pip install -r requirements_test.txt
 py -m pytest tests/ -q
 ```
-
-To deploy to a local Home Assistant dev container, see `scripts/README.md`
-(the deploy helper is machine-local and not committed to the repo).
-
-## Events
-
-`shl_goal` includes the normalized scorer, scoring team, period, game time,
-score-after-goal, assists, goal status, and penalty-shot/empty-net flags.
-`shl_event` carries the raw changed event fields, stable `eventUuid`, revision,
-and an `is_correction` flag. Lifecycle event names are `shl_game_started`,
-`shl_period_started`, `shl_period_ended`, and `shl_game_ended`.
 
 The SHL website endpoints are first-party website APIs, not a formally
 versioned public API. Real response captures used during development are in
