@@ -16,7 +16,7 @@ from custom_components.shl.discovery import (
     schedule_identifiers,
     schedule_local_offset,
 )
-from custom_components.shl.events import process_play_by_play
+from custom_components.shl.events import lifecycle_events, process_play_by_play
 from custom_components.shl.models import parse_feed_datetime, period_break_start
 from custom_components.shl.polling import (
     PERIOD_BREAK_MAX_PAUSE,
@@ -520,3 +520,90 @@ def test_real_fixtures_give_break_start_and_intermission_length():
     ]
     assert len(breaks) == 2
     assert all(timedelta(minutes=17) <= length <= timedelta(minutes=19) for length in breaks)
+
+
+def _lifecycle_game(uuid="g1", state="Ongoing", period=1):
+    return {
+        "gameUuid": uuid,
+        "state": state,
+        "period": period,
+        "home_team": {"teamCode": "SKE"},
+        "away_team": {"teamCode": "VLH"},
+    }
+
+
+def test_lifecycle_events_baseline_after_restart_fires_nothing():
+    assert lifecycle_events(None, _lifecycle_game(), "SKE", set()) == []
+
+
+def test_lifecycle_events_game_appearing_from_idle_fires_game_started():
+    fired = lifecycle_events({}, _lifecycle_game(period=1), "SKE", set())
+    assert [name for name, _ in fired] == ["shl_game_started", "shl_period_started"]
+    assert fired[0][1]["team_code"] == "SKE"
+    assert fired[0][1]["game_uuid"] == "g1"
+    assert fired[1][1]["period"] == 1
+
+
+def test_lifecycle_events_break_then_next_period_fires_period_ended_once():
+    ended: set[tuple[str, int]] = set()
+    # Period 1 ends: the game enters a break.
+    fired = lifecycle_events(
+        _lifecycle_game(period=1), _lifecycle_game(state="PeriodBreak", period=1), "SKE", ended
+    )
+    assert [name for name, _ in fired] == ["shl_period_ended"]
+    assert fired[0][1]["period"] == 1
+    assert ("g1", 1) in ended
+    # Transitional feed state at the next puck drop: Ongoing, still period 1.
+    fired = lifecycle_events(
+        _lifecycle_game(state="PeriodBreak", period=1),
+        _lifecycle_game(state="Ongoing", period=1),
+        "SKE",
+        ended,
+    )
+    assert fired == []
+    # Period 2 starts: only shl_period_started, no duplicate shl_period_ended.
+    fired = lifecycle_events(
+        _lifecycle_game(state="Ongoing", period=1),
+        _lifecycle_game(state="Ongoing", period=2),
+        "SKE",
+        ended,
+    )
+    assert [name for name, _ in fired] == ["shl_period_started"]
+    assert fired[0][1]["period"] == 2
+
+
+def test_lifecycle_events_new_period_without_observed_break_fires_period_ended():
+    ended: set[tuple[str, int]] = set()
+    fired = lifecycle_events(_lifecycle_game(period=1), _lifecycle_game(period=2), "SKE", ended)
+    assert [name for name, _ in fired] == ["shl_period_ended", "shl_period_started"]
+    assert ("g1", 1) in ended
+
+
+def test_lifecycle_events_game_end_fires_game_ended_and_period_ended():
+    ended: set[tuple[str, int]] = set()
+    fired = lifecycle_events(
+        _lifecycle_game(period=3), _lifecycle_game(state="GameEnded", period=3), "SKE", ended
+    )
+    assert [name for name, _ in fired] == ["shl_game_ended", "shl_period_ended"]
+    assert fired[1][1]["period"] == 3
+    # A finished game staying finished fires nothing more.
+    fired = lifecycle_events(
+        _lifecycle_game(state="GameEnded", period=3),
+        _lifecycle_game(state="GameEnded", period=3),
+        "SKE",
+        ended,
+    )
+    assert fired == []
+
+
+def test_lifecycle_events_game_switch_starts_new_game_without_ending_old():
+    ended: set[tuple[str, int]] = set()
+    fired = lifecycle_events(
+        _lifecycle_game(uuid="old", state="GameEnded", period=3),
+        _lifecycle_game(uuid="new", period=1),
+        "SKE",
+        ended,
+    )
+    assert [name for name, _ in fired] == ["shl_game_started", "shl_period_started"]
+    assert fired[1][1]["game_uuid"] == "new"
+    assert ("old", 3) not in ended

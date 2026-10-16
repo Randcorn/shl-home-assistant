@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from .discovery import is_finished_state, is_live_state, is_period_break
+
 
 def _int(value: Any) -> int:
     try:
@@ -56,3 +58,62 @@ def process_play_by_play(
         if is_new and str(event.get("type", "")).lower() == "goal":
             new_goals.append(normalized)
     return changed, new_goals
+
+
+def lifecycle_events(
+    previous: dict[str, Any] | None,
+    current: dict[str, Any],
+    team_code: str,
+    ended_periods: set[tuple[str, int]],
+) -> list[tuple[str, dict[str, Any]]]:
+    """Decide which game lifecycle events a game-state transition fires.
+
+    Returns (event_type, payload) pairs in firing order. ``previous`` is the
+    stored game data: ``None`` right after setup or a restart establishes a
+    baseline and fires nothing, while an empty dict (no game selected) lets a
+    newly appearing game fire ``shl_game_started``.
+
+    ``ended_periods`` tracks (game_uuid, period) pairs whose
+    ``shl_period_ended`` already fired and is updated in place, so a
+    transitional feed state (Ongoing with the old period at the next puck
+    drop) cannot make the same period end fire twice.
+    """
+    if previous is None:
+        return []
+    game_uuid = str(current.get("gameUuid") or "")
+    context = {
+        "game_uuid": game_uuid,
+        "team_code": team_code,
+        "home_team": current.get("home_team"),
+        "away_team": current.get("away_team"),
+    }
+    if previous.get("gameUuid") != game_uuid:
+        # The selection switched to a newly started game.
+        old_state = None
+        old_period = 0
+    else:
+        old_state = previous.get("state")
+        old_period = _int(previous.get("period"))
+    new_state = current.get("state")
+    new_period = _int(current.get("period"))
+    fired: list[tuple[str, dict[str, Any]]] = []
+
+    def period_ended(period: int) -> None:
+        if period > 0 and (game_uuid, period) not in ended_periods:
+            fired.append(("shl_period_ended", {**context, "period": period}))
+            ended_periods.add((game_uuid, period))
+
+    if old_state != new_state:
+        if not is_live_state(old_state) and is_live_state(new_state):
+            fired.append(("shl_game_started", context))
+        if is_live_state(old_state) and is_finished_state(new_state):
+            fired.append(("shl_game_ended", context))
+            if not is_period_break(old_state):
+                period_ended(old_period)
+    if new_period > old_period:
+        if not is_period_break(old_state):
+            period_ended(old_period)
+        fired.append(("shl_period_started", {**context, "period": new_period}))
+    elif old_period > 0 and is_period_break(new_state) and not is_period_break(old_state):
+        period_ended(old_period)
+    return fired

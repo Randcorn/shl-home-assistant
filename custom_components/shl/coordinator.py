@@ -30,9 +30,9 @@ from .const import (
 )
 from .discovery import (
     ScheduleGame, choose_next_game, discover_team_game, is_finished_state, is_live_state,
-    normalize_state, parse_team_standing, schedule_local_offset,
+    is_period_break, parse_team_standing, schedule_local_offset,
 )
-from .events import process_play_by_play
+from .events import lifecycle_events, process_play_by_play
 from .models import (
     GoalEvent, parse_game_overview, parse_goal, parse_live_snapshot,
     parse_shots_on_goal, period_break_start,
@@ -98,6 +98,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         self._last_standings_refresh: datetime | None = None
         self._standings: dict[str, Any] | None = None
         self._seen_revisions: dict[str, int] = {}
+        self._ended_periods: set[tuple[str, int]] = set()
         self._event_baseline_ready = False
         self._shots_on_goal: dict[str, int | None] = {"home": None, "away": None}
         self._last_details: tuple[str, dict[str, Any]] | None = None
@@ -235,13 +236,6 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             "seen_revisions": self._seen_revisions,
         })
 
-    @staticmethod
-    def _int(value: Any) -> int:
-        try:
-            return int(value)
-        except (TypeError, ValueError):
-            return 0
-
     async def _async_update_data(self) -> dict[str, Any]:
         now = datetime.now(timezone.utc)
         try:
@@ -322,7 +316,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 live = is_live_state(state) or (
                     selected.started_recently(now) and not is_finished_state(state)
                 )
-                self._fire_lifecycle_events(selected.game_uuid, game_data, state)
+                self._fire_lifecycle_events(game_data)
                 changed_events, goals = process_play_by_play(all_events, self._seen_revisions)
                 establish_baseline = not self._event_baseline_ready
                 if establish_baseline:
@@ -368,7 +362,7 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 last_goal = cached["last_goal"]
                 shots_on_goal = cached["shots_on_goal"]
 
-            if live and self._is_period_break(state):
+            if live and is_period_break(state):
                 # A period break needs no live-rate polling: sleep until
                 # shortly before the expected next puck drop, re-checking at
                 # least every few minutes so a delayed period is never
@@ -404,46 +398,14 @@ class ShlCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         )
         return overview, events
 
-    def _fire_lifecycle_events(
-        self, game_uuid: str, game: dict[str, Any], new_state: Any
-    ) -> None:
+    def _fire_lifecycle_events(self, game: dict[str, Any]) -> None:
         """Emit lifecycle events only when the selected game's state changes."""
         if self.data is None:
             # First update after setup or restart: establish a baseline
             # without replaying lifecycle transitions.
             return
-        previous = self.data.get("game") or {}
-        context = {
-            "game_uuid": game_uuid,
-            "team_code": self.team_code,
-            "home_team": game.get("home_team"),
-            "away_team": game.get("away_team"),
-        }
-        if previous.get("gameUuid") != game_uuid:
-            # The selection switched to a newly started game.
-            old_state = None
-            old_period = 0
-        else:
-            old_state = previous.get("state")
-            old_period = self._int(previous.get("period"))
-        new_period = self._int(game.get("period"))
-        if old_state != new_state:
-            if not is_live_state(old_state) and is_live_state(new_state):
-                self.hass.bus.async_fire("shl_game_started", context)
-            if is_live_state(old_state) and is_finished_state(new_state):
-                self.hass.bus.async_fire("shl_game_ended", context)
-                if old_period > 0 and not self._is_period_break(old_state):
-                    self.hass.bus.async_fire(
-                        "shl_period_ended", {**context, "period": old_period}
-                    )
-        if new_period > old_period:
-            if old_period > 0 and not self._is_period_break(previous.get("state")):
-                self.hass.bus.async_fire("shl_period_ended", {**context, "period": old_period})
-            self.hass.bus.async_fire("shl_period_started", {**context, "period": new_period})
-        elif old_period > 0 and self._is_period_break(new_state) and not self._is_period_break(old_state):
-            self.hass.bus.async_fire("shl_period_ended", {**context, "period": old_period})
-
-    @staticmethod
-    def _is_period_break(value: Any) -> bool:
-        state = normalize_state(value)
-        return "break" in state or "intermission" in state
+        previous = self.data.get("game")
+        for event_type, payload in lifecycle_events(
+            previous or {}, game, self.team_code, self._ended_periods
+        ):
+            self.hass.bus.async_fire(event_type, payload)

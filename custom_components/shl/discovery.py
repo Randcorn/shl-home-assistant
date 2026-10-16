@@ -72,6 +72,11 @@ def is_cancelled_state(value: Any) -> bool:
     return "cancelled" in state or "postponed" in state
 
 
+def is_period_break(value: Any) -> bool:
+    state = normalize_state(value)
+    return "break" in state or "intermission" in state
+
+
 def _first(mapping: dict[str, Any], *keys: str) -> Any:
     for key in keys:
         if mapping.get(key) is not None:
