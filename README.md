@@ -29,10 +29,25 @@ team, but the integration accepts any SHL team code.
 - Persists play-by-play event revisions so a Home Assistant restart does not
   replay already processed events.
 
-## Installation and configuration
+## Installation
+
+### HACS (recommended)
+
+1. Install [HACS](https://hacs.xyz/) if you have not already.
+2. In HACS, open the three-dot menu at the top right and choose
+   **Custom repositories**.
+3. Add `https://github.com/Randcorn/shl-home-assistant` with the category
+   **Integration**, then install **SHL**.
+4. Restart Home Assistant and add the integration from
+   Settings → Devices & services → Add integration → **SHL**.
+
+### Manual
 
 Copy `custom_components/shl` into Home Assistant's `custom_components` folder,
 restart Home Assistant, and add **SHL** from Settings → Devices & services.
+
+## Configuration
+
 Choose the team by name from the current SHL team list.
 Configure refresh intervals through the integration's **Configure** option.
 
